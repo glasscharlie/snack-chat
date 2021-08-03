@@ -11,6 +11,7 @@ router.get("/",(req,res)=>{
         include:[db.Photos],
     }).then( users=>{
         res.json(users);
+        res.render('index');
     }).catch(err=>{
         console.log(err);
         res.status(500).json(err);
