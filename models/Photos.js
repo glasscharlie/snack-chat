@@ -20,7 +20,7 @@ Photos.init(
           key: 'id',
         },
     },
-<<<<<<< HEAD
+
     review: {
         type: DataTypes.STRING,
         references: {
@@ -28,8 +28,7 @@ Photos.init(
             key: 'id',
         },
     },
-=======
->>>>>>> develop
+
     url :{
         type: DataTypes.STRING,
     },
