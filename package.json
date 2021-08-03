@@ -1,0 +1,29 @@
+{
+  "name": "snack-chat",
+  "version": "1.0.0",
+  "description": "This application is a mock-up of an e-commerce site back end, combining an Express.js API with Sequelize to interact with a MySQL database and tested with Insomnia.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glasscharlie/snack-chat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glasscharlie/snack-chat/issues"
+  },
+  "homepage": "https://github.com/glasscharlie/snack-chat#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "handlebars": "^4.7.7",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.5"
+  }
+}
