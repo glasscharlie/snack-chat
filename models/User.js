@@ -38,7 +38,7 @@ User.init (
         }, 
         friendsList: {
             type: DataTypes.STRING, 
-        }
+        },
     },
     {
     hooks: {
