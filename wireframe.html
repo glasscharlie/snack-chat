@@ -18,34 +18,66 @@
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
 
-            <h1 style="border: 1px solid black;">
-                🍽 SnackChat 📸
-            </h1>
-            <nav style="border: 1px solid black;">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1 style="border: 1px solid black;">🍽 SnackChat 📸</h1>
+            <nav>
                 <!-- Conditionally render login or logout links -->
-                {{#if logged_in}}
-                <a href="/profile">profile</a> |
-                <button class="no-button" id="logout">logout</button>
-                {{else}}
-                <a href="/login">login</a>
-                {{/if}}
+                <!-- {{#if logged_in}} -->
+                <button class="no-button" id="logout">logout</button>|
+                <!-- {{else}} -->
+                <a href="/login">login</a>|
+                <!-- {{/if}} -->
+                <a href="/profile">profile</a>|
+                <a href="/login">friends</a>|
+                <a href="/login">search</a>
             </nav>
     </header>
+
       <main class="container container-fluid">
         <!-- {{{ body }}} //-->
+        
+        ----- draft login -----
+  
 
-          <div class="loginBox">
-            <div class="dish-card">
-            <h2>Log In</h2>
-            <form>
-                User Name <input type="text" name="username"></input><br />
-                Password <input type="password" name="password"></input><br />
-                <button id="submitBtn">Log In!</button>
-            </form>
+          <div class="sectionBox">
+            <div class="mainCard">
+              <h2>Log In</h2>
+              <form>
+                  User Name <input type="text" name="username"></input><br />
+                  Password <input type="password" name="password"></input><br />
+                  <button id="submitBtn">Log In!</button>
+              </form>
+           </div>
           </div>
 
+          ----- draft profile page -----
+
+          <div class="sectionBox">
+
+            <div class="mainCard">
+              <h2>Profile</h2>
+              <ul>
+                <li>User Info</li>
+                <li>Photos Taken: 124</li>
+                <li>Restaurants Visited: 52</li>
+              </ul>
+              <h2>Following</h2>
+              <ul>
+                <li>Friend 1</li>
+                <li>Friend 2</li>
+                <li>Friend 3</li>
+                <li>Friend 4</li>
+                <li>Friend 5</li>
+
+              </ul>
+              
+            </div>
+            <div class="contentCard">
+              <h2>Photos</h2>
+              photo gallery here
+              
+            </div>
           </div>
 
 

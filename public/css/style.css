@@ -31,22 +31,41 @@
 
   nav {
     display: flex;
-    obackground-color: var(--secondary);
-    background-color: darkgrey;
+    padding: 5px;
+    border: 1px solid grey;
+    background-color: lightgrey;
   }
 
-  .loginBox
+  .sectionBox
   {
+    margin: 5px;
+    padding: 10px;
     border: 1px dotted grey;
+    display: flex;
+    
   }
 
-  .dish-card {
+  .mainCard {
     margin: 20px;
     flex: 0 1 300px;
-    padding: 5px;
-    width: 35%;
+    padding: 10px;
     min-height: 100%;
-    min-width: 35%;
+    min-width: 20%;
+    border: 3px solid var(--primary);
+    border-radius: var(--border-radius);
+    border-style: solid;
+    border-width: medium;
+    background-color: var(--light);
+    color: var(--dark);
+  }
+
+  .contentCard {
+    margin: 20px;
+    oflex: 0 1 300px;
+    padding: 10px;
+
+    min-height: 100%;
+    width: 80%;
     border: 3px solid var(--primary);
     border-radius: var(--border-radius);
     border-style: solid;
