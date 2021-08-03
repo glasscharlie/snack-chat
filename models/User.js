@@ -62,6 +62,7 @@ User.init (
             console.log(err);
             return err;
           }
+<<<<<<< HEAD
         },  
     },
 
@@ -73,6 +74,18 @@ User.init (
    
 }
 
+=======
+        },
+    
+
+    },
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user',
+}   
+>>>>>>> 6a329b6e3062350b9c3578bbeeb1db226ced7e90
 );
 
 
