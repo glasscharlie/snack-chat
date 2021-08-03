@@ -10,7 +10,15 @@ User.hasMany(Photos,{
 });
 
 User.hasMany(Reviews,{
+<<<<<<< HEAD
     foreignKey: 'user_id',
+=======
+<<<<<<< HEAD
+    foreignKey: 'user_ud',
+=======
+    foreignKey: 'user_id',
+>>>>>>> 6a329b6e3062350b9c3578bbeeb1db226ced7e90
+>>>>>>> develop
     onDelete: 'CASCADE',
 });
 
