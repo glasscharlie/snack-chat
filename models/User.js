@@ -7,7 +7,7 @@ class User extends Model {}
 User.init (
     {
          id: { 
-             type: DataTypes.Integer, 
+             type: DataTypes.INTEGER, 
              allowNull: false, 
              primaryKey: true,
              autoIncrement: true,
@@ -37,7 +37,7 @@ User.init (
             },
         }, 
         friendsList: {
-            type: DataTypes.String, 
+            type: DataTypes.STRING, 
         }
     },
     {
