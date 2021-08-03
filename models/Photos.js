@@ -1,5 +1,5 @@
-const { Model, DataTypes } =require ('sequelize');
-const sequelize =  require ('../config/connection');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require ('../config/connection');
 
 
 class Photos extends Model{}
@@ -23,15 +23,13 @@ Photos.init(
 
     review: {
         type: DataTypes.STRING,
-        references: {
-            model: 'user',
-            key: 'id',
-        },
     },
 
     url :{
         type: DataTypes.STRING,
     },
+},
+{
     
         sequelize,
         timestamps: false,

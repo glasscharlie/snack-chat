@@ -1,7 +1,7 @@
 const Photos = require('./Photos');
-const Reviews = require('./Reviews');
+// const Reviews = require('./Reviews');
 const User = require('./User');
-const FriendsList = require('./friendslist');
+// const FriendsList = require('./friendslist');
 
 
 User.hasMany(Photos,{
@@ -9,29 +9,30 @@ User.hasMany(Photos,{
     onDelete: 'CASCADE',
 });
 
-User.hasMany(Reviews,{
-<<<<<<< HEAD
+
+// User.hasMany(Reviews,{
+//     foreignKey: 'user_id',
+//     onDelete: 'CASCADE',
+// });
+
+// User.hasMany(Reviews,{
+
+//     foreignKey: 'user_id',
+
+//     onDelete: 'CASCADE',
+// });
+
+
+// User.hasOne(Friendslist,{
+//     foreignKey: 'user_id',
+// });
+
+Photos.belongsTo(User, {
     foreignKey: 'user_id',
-=======
-<<<<<<< HEAD
-    foreignKey: 'user_ud',
-=======
-    foreignKey: 'user_id',
->>>>>>> 6a329b6e3062350b9c3578bbeeb1db226ced7e90
->>>>>>> develop
-    onDelete: 'CASCADE',
 });
 
-User.hasOne(Friendslist,{
-    foreignKey: 'user_id',
-});
-
-Photos.BelongTo(User, {
-    foreignKey: 'user_id',
-});
-
-FriendsList.BelongsTo(User, {
-    foreignKey: 'user_id',
-});
+// FriendsList.BelongsTo(User, {
+//     foreignKey: 'user_id',
+// });
 
 module.exports = { User, Photos };
