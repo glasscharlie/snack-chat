@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SnackChat</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="public/css/style.css"> <!-- remove "public" from link-->
+  <link rel="stylesheet" href="/public/css/jass.css"> <!-- remove "public" from link-->
+  <link rel="stylesheet" href="/public/css/style.css"> <!-- remove "public" from link-->
 </head>
 
 <head>
@@ -32,11 +32,22 @@
                 <a href="/login">login</a>
                 {{/if}}
             </nav>
-
-
     </header>
       <main class="container container-fluid mt-5">
         <!-- {{{ body }}} //-->
+
+          <div class="mainBox">
+            <div class="dish-card">
+            <h2>Log In</h2>
+            <form>
+                User Name <input type="text" name="username"></input><br />
+                Password <input type="password" name="password"></input><br />
+                <button id="submitBtn">Log In!</button>
+            </form>
+          </div>
+
+
+
 
         
 
