@@ -7,7 +7,7 @@ class User extends Model {}
 User.init (
     {
          id: { 
-             type: DataTypes.Integer, 
+             type: DataTypes.INTEGER, 
              allowNull: false, 
              primaryKey: true,
              autoIncrement: true,
@@ -37,8 +37,8 @@ User.init (
             },
         }, 
         friendsList: {
-            type: DataTypes.String, 
-        }
+            type: DataTypes.STRING, 
+        },
     },
     {
     hooks: {
@@ -62,16 +62,18 @@ User.init (
             console.log(err);
             return err;
           }
-        },
-    
-
+        },  
     },
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'user',
-}   
+
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'user',
+   
+}
+
 );
+
 
 module.exports = User;
