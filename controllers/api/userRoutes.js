@@ -8,7 +8,7 @@ module.exports = router;
 
 router.get("/",(req,res)=>{
     db.User.findAll({
-        include:[db.Photo],
+        include:[db.Photos],
     }).then( users=>{
         res.json(users);
     }).catch(err=>{
@@ -34,7 +34,7 @@ router.post("/",(req,res)=>{
 router.get("/:id",(req,res)=>{
     db.User.findByPk(req.params.id,{
         include:[{
-            model:db.Photo
+            model:db.Photos
         }]
     }).then(users=>{
         res.json(users);

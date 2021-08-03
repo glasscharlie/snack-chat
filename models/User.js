@@ -39,7 +39,6 @@ User.init (
         friendsList: {
             type: DataTypes.STRING, 
         }
-        },
     },
     {
     hooks: {
@@ -63,18 +62,16 @@ User.init (
             console.log(err);
             return err;
           }
-        },  
+        },
+    
+
     },
-
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'user',
-   
-}
-
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user',
+}   
 );
-
 
 module.exports = User;
