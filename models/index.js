@@ -26,4 +26,4 @@ FriendsList.BelongsTo(User, {
     foreignKey: 'user_id',
 });
 
-module.exports = { User, Reviews, FriendsList, Photos };
+module.exports = { User, Photos };

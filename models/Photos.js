@@ -20,6 +20,13 @@ Photos.init(
           key: 'id',
         },
     },
+    review: {
+        type: DataTypes.STRING,
+        references: {
+            model: 'user',
+            key: 'id',
+        },
+    },
     url :{
         type: DataTypes.STRING,
     },
