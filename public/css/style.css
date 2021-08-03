@@ -19,10 +19,18 @@
 
   }
 
-  header {
-    padding: 5px;
+  header, footer {
+    padding: 10px;
     background-color: lightblue;
   }
+
+.footerText {
+  text-align: center;
+}
+
+#newPhoto {
+  float:right;
+}
 
   .test {
     border: 1px dotted red;
@@ -52,16 +60,12 @@
     min-height: 100%;
     min-width: 20%;
     border: 3px solid var(--primary);
-    border-radius: var(--border-radius);
-    border-style: solid;
-    border-width: medium;
     background-color: var(--light);
     color: var(--dark);
   }
 
   .contentCard {
     margin: 20px;
-    oflex: 0 1 300px;
     padding: 10px;
 
     min-height: 100%;
