@@ -9,10 +9,19 @@ const FriendsList = require('./friendslist');
 //     onDelete: 'CASCADE',
 // });
 
+
 // User.hasMany(Reviews,{
 //     foreignKey: 'user_id',
 //     onDelete: 'CASCADE',
 // });
+
+// User.hasMany(Reviews,{
+
+//     foreignKey: 'user_id',
+
+//     onDelete: 'CASCADE',
+// });
+
 
 // User.hasOne(Friendslist,{
 //     foreignKey: 'user_id',
@@ -26,4 +35,4 @@ const FriendsList = require('./friendslist');
 //     foreignKey: 'user_id',
 // });
 
-module.exports = { User, Reviews, FriendsList, Photos };
+module.exports = { User, Photos };
