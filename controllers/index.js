@@ -12,6 +12,14 @@ router.get('/', (req,res) => {
     res.render('home') 
 });
 
+router.get('/login', (req,res) => {
+    res.render('home') 
+});
+
+router.get('/profile', (req,res) => {
+    res.render('profile') 
+});
+
 router.use("/api",apiRoutes)
 
 

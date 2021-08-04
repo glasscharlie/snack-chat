@@ -1,4 +1,61 @@
-<div class="menu-container">
+<div class="mainBox" id="splashPage">
+
+  <div class="leftCard">
+
+    <h2>{{username}} Profile</h2>
+
+    <ul>
+      <li>User Info</li>
+      <li>Photos Taken: 124</li>
+      <li>Restaurants Visited: 52</li>
+    </ul>
+
+    <h2>Following</h2>
+
+    <ul>
+      <li>Friend 1</li>
+      <li>Friend 2</li>
+      <li>Friend 3</li>
+      <li>Friend 4</li>
+      <li>Friend 5</li>
+    </ul>
+
+  </div>
+
+  <div class="rightCard pure-g">
+
+    <!-- image gallery of user's photos -->
+
+    {{#each photos as |photo|}} -->
+    <div class="foodCard pure-u-1-2">
+      <a href="{{photo.review}}">
+        <img src="{{photo.url}}" alt="{{photo.title}}">{{photo.title}}
+      </a>
+    </div>
+    {{/each}}
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <div class="menu-container">
   <div class="card-header col-md-12 text-center">
     <h2>
       &#127869 Current Menu
@@ -68,4 +125,4 @@
   </div>
 </div>
 
-<script src="/js/add-dish.js"></script>
+<script src="/js/add-dish.js"></script> --}}
