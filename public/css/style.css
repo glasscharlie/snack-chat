@@ -131,9 +131,7 @@ h2 {
 }
 
 .rightCard {
-  omargin: 10px;
   padding: 10px;
-  oborder: 3px solid #ddd;
   border-radius: 5px;
   align-content: flex-start;
 }
@@ -145,7 +143,7 @@ h2 {
   margin: 0px;
   padding: 5px;
   min-height: 50%;
-  border: 3px solid #ddd;
+  oborder: 3px solid #ddd;
   border-radius: 5px;
   background-color:white;
   color: #182c23;
@@ -158,7 +156,7 @@ h2 {
 
 #splashImage {
   width: 100%;
-  height: 500px;
+  height: 400px;
 
 }
 
