@@ -75,10 +75,15 @@ footer {
 }
 
 input {
+  width: 90%;
   margin: 0px 0px 5px 0px;
   border-radius: 3px;
   padding: 3px 5px;
   margin: 2px 5px;
+}
+
+.radioStyle {
+  width: 10px;
 }
 
 img {
