@@ -6,8 +6,8 @@
 
     <ul>
       <li>User Info</li>
-      <li>Photos Taken: 124</li>
-      <li>Restaurants Visited: 52</li>
+      <li>124 Photos Taken</li>
+      <li>52 Restaurants Visited</li>
     </ul>
 
     <h2>Following</h2>
@@ -24,6 +24,8 @@
 
   <div class="rightCard pure-g">
 
+    <h2>Photo Gallery</h2>
+
     <!-- image gallery of user's photos -->
 
     {{#each photos as |photo|}} -->
@@ -33,6 +35,17 @@
       </a>
     </div>
     {{/each}}
+
+    <div class="foodCard pure-u-1-2">
+      <a href="{{photo.review}}">
+        <img src="{{photo.url}}" alt="{{photo.title}}">{{photo.title}}
+      </a>
+    </div>
+    <div class="foodCard pure-u-1-2">
+      <a href="{{photo.review}}">
+        <img src="{{photo.url}}" alt="{{photo.title}}">{{photo.title}}
+      </a>
+    </div>
 
   </div>
 
