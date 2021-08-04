@@ -10,10 +10,10 @@
 body {
   font-family: Georgia, 'Times New Roman', Times, serif
   margin: 0;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   min-height: 100vh;
-  justify-content: flex-start;
+  justify-content: flex-start; */
   background-color: white;
 }
 
@@ -93,6 +93,7 @@ img {
 h2 {
  font-size: 26pt;
  letter-spacing: -1px;
+ width: 100%;
 }
 
 .mainBox {
@@ -114,21 +115,20 @@ h2 {
 }
 
 .rightCard {
+  display: flex;
+  justify-content: center;
   margin: 20px;
   padding: 10px;
-  min-height: 100%;
   width: 80%;
   border: 3px solid var(--primary);
   border-radius: 5px;
-  background-color: var(--light);
   color: var(--dark);
 }
 
 .foodCard {
-  margin: 10px;
+  margin: 5px;
   padding: 5px;
   min-height: 50%;
-  owidth: 45%;
   border: 3px solid var(--primary);
   border-radius: 5px;
   background-color: var(--light);

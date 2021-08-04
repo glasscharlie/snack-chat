@@ -20,6 +20,14 @@ router.get('/profile', (req,res) => {
     res.render('profile') 
 });
 
+router.get('/friends', (req,res) => {
+    res.render('friends') 
+});
+
+router.get('/search', (req,res) => {
+    res.render('search') 
+});
+
 router.use("/api",apiRoutes)
 
 
