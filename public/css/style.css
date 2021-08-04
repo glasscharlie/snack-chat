@@ -130,24 +130,34 @@ h2 {
 }
 
 .rightCard {
-  margin: 10px;
+  omargin: 10px;
   padding: 10px;
-  border: 3px solid #ddd;
+  oborder: 3px solid #ddd;
   border-radius: 5px;
   align-content: flex-start;
 }
 
 .foodCard {
-  margin: 0x;
-  padding: 5px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0px;
+  padding: 10px;
   min-height: 50%;
   border: 3px solid #ddd;
   border-radius: 5px;
-  background-color: #eee;
+  background-color:white;
   color: #182c23;
 }
 
+.foodCard img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
 .subHeader {
+  margin: 10px 0px;
   display: flex;
   justify-content:space-between;
   align-items: baseline;
