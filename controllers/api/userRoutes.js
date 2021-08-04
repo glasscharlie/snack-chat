@@ -9,13 +9,14 @@ module.exports = router;
 router.get("/",(req,res)=>{
     db.User.findAll({
         include:[db.Photos],
-    }).then( users=>{
-        res.json(users);
+    }).then(users=>{
+    res.send('hi')
+       // res.json(users);
     }).catch(err=>{
         console.log(err);
         res.status(500).json(err);
     })
-})
+});
 
 router.post("/",(req,res)=>{
     db.User.create(req.body).then(user=>{

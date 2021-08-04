@@ -1,208 +1,136 @@
 :root {
-    --primary: lightgrey;
-    --secondary: red;
-    --tertiary: blue;
-    --light: #ebebeb;
-    --dark: #182c23;
-    --error: rgb(228, 46, 1);
-    --border-radius: 0.3rem;
-  }
-  
-  body {
-    font-family: Arial;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    justify-content: flex-start;
-    background-color: white;
+  --primary: #ddd;
+  --secondary: red;
+  --tertiary: blue;
+  --light: #eee;
+  --dark: #182c23;
+  --error: rgb(228, 46, 1);
+}
 
-  }
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+  background-color: white;
+}
 
-  header, footer {
-    padding: 10px;
-    background-color: lightblue;
-  }
+header {
+  padding: 10px;
+  background-color: #333;
+  border-bottom: 5px solid darkorange;
+}
+
+header h1 {
+  display: inline;
+  color: white;
+  letter-spacing: -3px;
+  font-size: 40pt;
+}
+
+#tagline {
+  display: inline;
+  color: white;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+nav {
+  display: flex;
+  float: right;
+  padding: 5px;
+}
+
+button, nav a {
+  padding: 3px 5px;
+  margin: 2px 5px;
+  width: 80px;
+  border: 2px solid white;
+  border-radius: 5px;
+  text-decoration:none;
+  color: white;
+  background-color: #333;
+  text-align:center;
+}
+
+button:hover, nav a:hover {
+  color: white;
+  background-color: darkorange;
+  text-decoration: none;
+}
+
+footer {
+  padding: 10px;
+  background-color: #333;
+  border-top: 5px solid darkorange;
+}
 
 .footerText {
+  color: white;
   text-align: center;
+  font-size: small;
 }
 
 #newPhoto {
   float:right;
 }
 
-  .test {
-    border: 1px dotted red;
-    background-color: lightgrey;
-  }
+input {
+  width: 90%;
+  margin: 0px 0px 5px 0px;
+  border-radius: 3px;
+  padding: 3px 5px;
+  margin: 2px 5px;
+}
 
-  nav {
-    display: flex;
-    padding: 5px;
-    border: 1px solid grey;
-    background-color: lightgrey;
-  }
+img {
+  border: 2px solid #333;
+  border-radius: 5px;
+}
 
-  .sectionBox
-  {
-    margin: 5px;
-    padding: 10px;
-    border: 1px dotted grey;
-    display: flex;
-    
-  }
+h2 {
+ font-size: 26pt;
+ letter-spacing: -1px;
+}
 
-  .mainCard {
-    margin: 20px;
-    flex: 0 1 300px;
-    padding: 10px;
-    min-height: 100%;
-    min-width: 20%;
-    border: 3px solid var(--primary);
-    background-color: var(--light);
-    color: var(--dark);
-  }
+.mainBox {
+  margin: 0px;
+  padding: 10px;
+  display: flex;
+}
 
-  .contentCard {
-    margin: 20px;
-    padding: 10px;
+.leftCard {
+  margin: 20px;
+  flex: 0 1 300px;
+  padding: 10px;
+  min-height: 100%;
+  min-width: 20%;
+  border: 3px solid var(--primary);
+  border-radius: 5px;
+  background-color: var(--light);
+  color: var(--dark);
+}
 
-    min-height: 100%;
-    width: 80%;
-    border: 3px solid var(--primary);
-    border-radius: var(--border-radius);
-    border-style: solid;
-    border-width: medium;
-    background-color: var(--light);
-    color: var(--dark);
-  }
-  
-  /*
- 
-  header {
-    padding: 40px;
-    text-align: center;
-    background: var(--primary);
-    color: var(--secondary);
-    border-bottom-style: solid;
-  }
-  
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    flex-grow: 1;
-  }
-  
-  aside {
-    flex: 0;
-    background-color: var(--tertiary);
-    padding: 80px;
-    text-align: left;
-    color: var(--light);
-  }
-  
- 
-  .menu-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 75%;
-    min-height: 100%;
-    margin: 0px auto;
-    border: 3px solid var(--primary);
-    border-radius: var(--border-radius);
-    border-style: solid;
-    border-width: medium;
-    background-color: var(--light);
-    color: var(--dark);
-    padding: 50px;
-    background-color: #ebebeb;
-  }
-  
-  .add-dish-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    min-height: 100%;
-    min-width: 35%;
-    margin: 5px auto;
-    border: 3px solid var(--primary);
-    border-radius: var(--border-radius);
-    border-style: solid;
-    border-width: medium;
-    background-color: var(--light);
-    color: var(--dark);
-    padding: 5px;
-    text-align: center;
-    background-color: var(--tertiary);
-  }
-  
-  .edit-dish-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 35%;
-    min-height: 100%;
-    min-width: 35%;
-    margin: 5px auto;
-    border: 3px solid var(--primary);
-    border-radius: var(--border-radius);
-    border-style: solid;
-    border-width: medium;
-    background-color: var(--light);
-    color: var(--dark);
-    padding: 50px;
-    text-align: center;
-    background-color: var(--tertiary);
-  }
+.rightCard {
+  margin: 20px;
+  padding: 10px;
+  min-height: 100%;
+  width: 80%;
+  border: 3px solid var(--primary);
+  border-radius: 5px;
+  background-color: var(--light);
+  color: var(--dark);
+}
 
-  
-  .menu-card {
-    margin: 50px;
-    flex: 0 1 300px;
-    padding: 5px;
-    border: 3px solid var(--dark);
-    border-radius: var(--border-radius);
-    border-style: groove;
-    border-width: thick;
-    background-color: var(--light);
-    color: var(--dark);
-  }
-  
-  .card-header {
-    color: var(--light);
-    margin: 0;
-    background-color: var(--secondary);
-    padding: 0.625rem;
-    border: 3px solid var(--primary);
-    border-radius: var(--border-radius);
-    border-style: solid;
-    border-width: medium;
-  }
-
-  .has-nuts {
-    color: var(--error)
-  }
-
-  .dish-card-header {
-    font-size: 1.5rem;
-    color: var(--tertiary);
-    margin: 0;
-    background-color: var(--light);
-    padding: 0.625rem;
-    border-bottom-style: solid;
-  }
-  
-  .card-body {
-    padding: 2.5%;
-    font-size: 1.4rem;
-    text-align: center;
-  }
-  
-  .container {
-    display: flex;
-    flex-flow: column wrap;
-    align-content: flex-start;
-    align-items: center;
-  }
-
-*/
+.foodCard {
+  margin: 10px;
+  padding: 5px;
+  min-height: 50%;
+  owidth: 45%;
+  border: 3px solid var(--primary);
+  border-radius: 5px;
+  background-color: var(--light);
+  color: var(--dark);
+}
