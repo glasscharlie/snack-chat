@@ -1,19 +1,6 @@
-:root {
-  --primary: #ddd;
-  --secondary: red;
-  --tertiary: blue;
-  --light: #eee;
-  --dark: #182c23;
-  --error: rgb(228, 46, 1);
-}
-
 body {
   font-family: Georgia, 'Times New Roman', Times, serif
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: flex-start;
   background-color: white;
 }
 
@@ -21,13 +8,21 @@ header {
   padding: 10px;
   background-color: #333;
   border-bottom: 5px solid darkorange;
+  display: flex;
+  justify-content:space-between;
+  align-items: baseline;
 }
 
 header h1 {
+  padding-right: 5px;
   display: inline;
   color: white;
   letter-spacing: -3px;
   font-size: 40pt;
+}
+
+header a:hover {
+  text-decoration: none;
 }
 
 #tagline {
@@ -35,6 +30,7 @@ header h1 {
   color: white;
   letter-spacing: 1px;
   font-style: italic;
+  white-space: nowrap;
 }
 
 nav {
@@ -74,6 +70,7 @@ footer {
 }
 
 #newPhoto {
+  display:block;
   float:right;
 }
 
@@ -85,52 +82,96 @@ input {
   margin: 2px 5px;
 }
 
+.radioStyle {
+  width: 10px;
+}
+
 img {
-  border: 2px solid #333;
+  border: 3px solid #ccc;
   border-radius: 5px;
+  padding: 2px;
 }
 
 h2 {
- font-size: 26pt;
- letter-spacing: -1px;
+  font-size: 26pt;
+  letter-spacing: -1px;
+  width: 100%;
+
 }
 
 .mainBox {
   margin: 0px;
   padding: 10px;
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.leftBox {
+  background-color: white;
+  color: #182c23;
 }
 
 .leftCard {
-  margin: 20px;
-  flex: 0 1 300px;
+  margin: 10px;
   padding: 10px;
+  border: 3px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 300px;
   min-height: 100%;
   min-width: 20%;
-  border: 3px solid var(--primary);
-  border-radius: 5px;
-  background-color: var(--light);
-  color: var(--dark);
+  background-color: #eee;
+}
+
+.rightBox {
+  background-color: white;
+  color: #182c23;
 }
 
 .rightCard {
-  margin: 20px;
+  omargin: 10px;
   padding: 10px;
-  min-height: 100%;
-  width: 80%;
-  border: 3px solid var(--primary);
+  oborder: 3px solid #ddd;
   border-radius: 5px;
-  background-color: var(--light);
-  color: var(--dark);
+  align-content: flex-start;
 }
 
 .foodCard {
-  margin: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0px;
   padding: 5px;
   min-height: 50%;
-  owidth: 45%;
-  border: 3px solid var(--primary);
+  border: 3px solid #ddd;
   border-radius: 5px;
-  background-color: var(--light);
-  color: var(--dark);
+  background-color:white;
+  color: #182c23;
+}
+
+.foodCard img {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+#splashImage {
+  width: 100%;
+  height: 500px;
+
+}
+
+.splash {
+  object-fit: cover;
+  width: 50px;
+  height: 100px;
+}
+
+
+.subHeader {
+  margin: 10px 0px;
+  display: flex;
+  justify-content:space-between;
+  align-items: baseline;
 }
