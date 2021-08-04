@@ -30,6 +30,10 @@ header h1 {
   font-size: 40pt;
 }
 
+header a:hover {
+  text-decoration: none;
+}
+
 #tagline {
   display: inline;
   color: white;
@@ -74,11 +78,11 @@ footer {
 }
 
 #newPhoto {
+  display:block;
   float:right;
 }
 
 input {
-  width: 90%;
   margin: 0px 0px 5px 0px;
   border-radius: 3px;
   padding: 3px 5px;
@@ -91,9 +95,10 @@ img {
 }
 
 h2 {
- font-size: 26pt;
- letter-spacing: -1px;
- width: 100%;
+  font-size: 26pt;
+  letter-spacing: -1px;
+  width: 100%;
+
 }
 
 .mainBox {
@@ -129,6 +134,8 @@ h2 {
   margin: 5px;
   padding: 5px;
   min-height: 50%;
+  max-width: 98%;
+  min-width: 48%;
   border: 3px solid var(--primary);
   border-radius: 5px;
   background-color: var(--light);
