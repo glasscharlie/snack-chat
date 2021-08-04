@@ -1,50 +1,33 @@
 :root {
-    --primary: lightgrey;
-    --secondary: red;
-    --tertiary: blue;
-    --light: #ebebeb;
-    --dark: #182c23;
-    --error: rgb(228, 46, 1);
-    --border-radius: 0.3rem;
-  }
-  
-  body {
-    font-family: Arial;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    justify-content: flex-start;
-    background-color: white;
-
-  }
-
-  header {
-    padding: 10px;
-    background-color: #333;
-    border-bottom: 10px solid lightgrey;
-  }
-
-  footer {
-    padding: 10px;
-    background-color: #333;
-    border-top: 10px solid lightgrey;
-  }
-  
-.footerText {
-  color: white;
-  text-align: center;
-  font-size: small;
+  --primary: #ddd;
+  --secondary: red;
+  --tertiary: blue;
+  --light: #eee;
+  --dark: #182c23;
+  --error: rgb(228, 46, 1);
 }
 
-#newPhoto {
-  float:right;
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+  background-color: white;
+}
+
+header {
+  padding: 10px;
+  background-color: #333;
+  border-bottom: 10px solid lightgrey;
 }
 
 header h1 {
   display: inline;
   color: white;
-  letter-spacing: -1px;
+  letter-spacing: -3px;
+  font-size: 40pt;
 }
 
 #tagline {
@@ -55,44 +38,66 @@ header h1 {
 }
 
 nav {
-    display: flex;
-    float: right;
-    padding: 5px;
-  }
+  display: flex;
+  float: right;
+  padding: 5px;
+}
 
-nav a {
+button, nav a {
+  padding: 3px 5px;
+  margin: 2px 5px;
+  width: 80px;
+  border: 2px solid white;
+  border-radius: 5px;
+  text-decoration:none;
+  color: white;
+  background-color: #333;
+  text-align:center;
+}
+
+button:hover, nav a:hover {
+  color: white;
+  background-color: darkorange;
+  text-decoration: none;
+}
+
+footer {
+  padding: 10px;
+  background-color: #333;
+  border-top: 10px solid lightgrey;
+}
+
+.footerText {
+  color: white;
+  text-align: center;
+  font-size: small;
+}
+
+#newPhoto {
+  float:right;
+}
+
+  input {
+    width: 90%;
+    margin: 0px 0px 5px 0px;
+    border-radius: 3px;
     padding: 3px 5px;
     margin: 2px 5px;
-    width: 80px;
-    border: 1px solid grey;
-    border-radius: 5px;
-    text-decoration:none;
-    opacity: 80%;
-    background-color: lightgrey;
-    text-align:center;
   }
 
-  nav a:hover {
-    text-decoration: none;
-    opacity:100%;
-  }
+img {
+  border: 2px solid #333;
+  border-radius: 5px;
+}
 
-  button {
-    padding: 3px 5px;
-    margin: 2px 5px;
-    width: 80px;
-    border: 1px solid grey;
-    border-radius: 5px;
-    otext-decoration:none;
-    opacity: 80%;
-    background-color: lightgrey;
-    text-align:center;
-  }
-
+h2 {
+ font-size: 26pt;
+ letter-spacing: -1px;
+}
 
   .sectionBox
   {
-    margin: 5px;
+    margin: 0px;
     padding: 10px;
     border: 1px dotted grey;
     display: flex;
@@ -106,6 +111,7 @@ nav a {
     min-height: 100%;
     min-width: 20%;
     border: 3px solid var(--primary);
+    border-radius: 5px;
     background-color: var(--light);
     color: var(--dark);
   }

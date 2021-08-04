@@ -4,17 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SnackChat</title>
+  <title>snackChat</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
+
   <div class="test flex-column justify-space-around">
+
     <header>
-      <h1 class="test">SnackChat</h1>&nbsp;
+
+      <h1 class="test"><span style="color:darkorange;">snack</span>Chat</h1>&nbsp;
       <p id="tagline">Talk about it. Eat about it.</p>
+
         <nav>
           <!-- Conditionally render login or logout links -->
           <!-- {{#if logged_in}}
@@ -26,15 +30,19 @@
           <a href="/login">friends</a>
           <a href="/login">search</a>
         </nav>
-    </header>
-      <main>
-        {{{body}}}
-      </main>
 
-      <footer>
-        <div class="footerText">created by Charles, Jose, Marcos + Ran.</div>
-      </footer>
+    </header>
+
+    <main>
+      {{{body}}}
+    </main>
+
+    <footer>
+      <div class="footerText">snackChat is powered by calories and code.</div>
+    </footer>
+    
   </div>
-  </body>
+
+</body>
 
 </html>
