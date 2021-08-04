@@ -10,8 +10,7 @@ router.get("/",(req,res)=>{
     db.User.findAll({
         include:[db.Photos],
     }).then(users=>{
-    res.send('hi')
-       // res.json(users);
+       res.json(users);
     }).catch(err=>{
         console.log(err);
         res.status(500).json(err);
