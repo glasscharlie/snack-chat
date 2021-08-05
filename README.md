@@ -1,6 +1,6 @@
-# SnackChat (Group Project 2) 🍴
+# snackChat (UW Coding Bootcamp Group Project 2)
 
-This application is a mock-up of an e-commerce site back end, combining an Express.js API with Sequelize to interact with a MySQL database and tested with Insomnia.
+This application is a group project mock-up of a social media application in which the user can log in, upload photos of food in restaurants, review the food, and follow other users. This is written with several JavaScript packages including Handlebars.js and Express.js API, and password-encrypted with bcrypt. Database  Sequelize to interact with a MySQL database and tested with Insomnia.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
