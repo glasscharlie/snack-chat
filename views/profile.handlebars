@@ -37,7 +37,7 @@
 
     <div class="subHeader pure-u-1">
         <div><h2>Photo Gallery</h2></div>
-        <div><button id="newPhoto">+photo</button></div>
+        <div><a href="#open-modal"><button id="newPhoto">+photo</button></a></div>
     </div>
 
     {{!-- {{#each photos as |photo|}} -->
@@ -92,4 +92,15 @@
 
   </div>
 
+</div>
+
+<!-- modal to add a photo -->
+
+<div id="open-modal" class="modal-window">
+  <div>
+    <div style="float:right;"><a href="#modal-close"><button>close</button></a></div>
+    <!-- <a href="#modal-close" title="Close" class="modal-close">close &times;</a> -->
+    <h2><span style="color:darkorange;">+</span>Photo</h2>
+    <div><p>Upload your photo here:</p></div>
+  </div>
 </div>
