@@ -1,4 +1,4 @@
-const Photos = require('./Photos');
+const Photos = require('./Photo');
 const Comment = require ('./Comment');
 const User = require('./User');
 const Review = require('./Review');
@@ -27,6 +27,15 @@ User.hasMany(Comment,{
         allowNull:false
     }
 });
+Comment.belongsTo(User);
+
+Photos.hasMany(Comment,{
+    onDelete:"CASCADE",
+    foreignKey:{
+        allowNull:false
+    }
+});
+Comment.belongsTo(Photos);
 
 User.belongsToMany(User, {
     through:"FollowersFollows",
@@ -37,7 +46,7 @@ User.belongsToMany(User, {
 });
 User.belongsToMany(User, {
     through:"FollowersFollows",
-    as:"Followers",
+    as:"Followed",
     foreignKey:"followId",
     otherKEy:"FollowerId"
 

@@ -8,7 +8,14 @@ module.exports = router;
 
 router.get("/",(req,res)=>{
     db.User.findAll({
-        include:[db.Photos],
+        include:[
+            {
+            model: db.Photos,
+            include:[{
+                model:db.Comment,
+                include:[db.User]
+            }],
+    }]
     }).then(users=>{
        res.json(users);
     }).catch(err=>{
@@ -35,7 +42,12 @@ router.get("/:id",(req,res)=>{
     db.User.findByPk(req.params.id,{
         include:[{
             model:db.Photos
-        }]
+        }, {model:db.User,
+            as:"Followers"
+        },
+        {
+         model:db.User,
+         as:"Followed"}]
     }).then(users=>{
         res.json(users);
     }).catch(err=>{
