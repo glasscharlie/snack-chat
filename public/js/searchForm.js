@@ -2,19 +2,13 @@ const searchForm = document.querySelector("#searchForm");
 
 searchForm.addEventListener("submit",event=>{
         event.preventDefault();
-        // if(document.getElementById("restaurantSearch").checked = true) {
-            fetch("/api/photos",{
+            fetch("/api/photos/Bobs Burgers",{
                 method:"GET",
-                body:JSON.stringify(''),
-                headers:{
-                    "Content-Type":"application/json"
-                }
             }).then(res=>{
                 if(res.ok){
-                    location.reload()
+                    console.log(res.body[0])
                 } else {
                     alert("error")
                 }
             })
-            // }
         })
