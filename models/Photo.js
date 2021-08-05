@@ -29,15 +29,11 @@ Photo.init(
         type: DataTypes.STRING,
     },
 
-    restaurant: {
-        type: DataTypes.STRING,    
-    }, 
     food: {
         type: DataTypes,
     }
 },
 {
-    
         sequelize,
         timestamps: false,
         freezeTableName: true,
