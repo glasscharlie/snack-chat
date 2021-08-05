@@ -31,6 +31,9 @@ Photo.init(
 
     restaurant: {
         type: DataTypes.STRING,    
+    }, 
+    food: {
+        type: DataTypes,
     }
 },
 {
