@@ -92,11 +92,14 @@ img {
   padding: 2px;
 }
 
+img:hover {
+  border: 3px solid darkorange;
+}
+
 h2 {
   font-size: 26pt;
   letter-spacing: -1px;
   width: 100%;
-
 }
 
 .mainBox {
@@ -131,9 +134,7 @@ h2 {
 }
 
 .rightCard {
-  omargin: 10px;
   padding: 10px;
-  oborder: 3px solid #ddd;
   border-radius: 5px;
   align-content: flex-start;
 }
@@ -145,7 +146,7 @@ h2 {
   margin: 0px;
   padding: 5px;
   min-height: 50%;
-  border: 3px solid #ddd;
+  oborder: 3px solid #ddd;
   border-radius: 5px;
   background-color:white;
   color: #182c23;
@@ -158,8 +159,11 @@ h2 {
 
 #splashImage {
   width: 100%;
-  height: 500px;
+  height: 400px;
+}
 
+#splashImage:hover {
+  border: 3px solid #ccc;
 }
 
 .splash {
@@ -168,10 +172,71 @@ h2 {
   height: 100px;
 }
 
-
 .subHeader {
   margin: 10px 0px;
   display: flex;
   justify-content:space-between;
   align-items: baseline;
+}
+
+.modal-window {
+  position: fixed;
+  background-color: rgba(200, 200, 200, 0.75);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.modal-window:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-window>div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 2rem;
+  background-color: #333;
+  border-top: 5px solid darkorange;
+  border-bottom: 5px solid darkorange;
+  oborder-radius: 5px;
+  color: white;
+}
+
+.modal-window header {
+  font-weight: bold;
+}
+
+.modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.modal-window h1 {
+  font-size: 150%;
+  margin: 0 0 15px;
+}
+
+.modal-window p {
+  text-align: left;
+  letter-spacing: normal;
 }
