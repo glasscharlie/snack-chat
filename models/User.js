@@ -36,9 +36,9 @@ User.init (
                 len: [8],
             },
         }, 
-        followers: {
-            type: DataTypes.INT, 
-        }
+        // followers: {
+        //     type: DataTypes.INT, 
+        // },
     },
     {
     hooks: {

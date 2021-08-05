@@ -1,4 +1,4 @@
-const { Photo } = require('../models');
+const { Photos } = require('../models');
 
 const photodata = [
   {
@@ -31,6 +31,6 @@ const photodata = [
 
 ];
 
-const seedPhoto = () => Photo.bulkCreate(photodata);
+const seedPhoto = () => Photos.bulkCreate(photodata);
 
 module.exports = seedPhoto;

@@ -2,7 +2,7 @@ const sequelize = require('../config/connection');
 const seedUsers = require('./userData');
 const seedPhotos = require('./photoData');
 const seedComments = require('./commentData');
-const seedReviews = require('./reviewData');
+// const seedReviews = require('./reviewData');
 // const seedFollows= require('./followData');
 
 
