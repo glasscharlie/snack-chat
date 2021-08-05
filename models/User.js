@@ -36,8 +36,8 @@ User.init (
                 len: [8],
             },
         }, 
-        friendsList: {
-            type: DataTypes.STRING, 
+        followers: {
+            type: DataTypes.INT, 
         }
     },
     {
