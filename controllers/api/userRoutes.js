@@ -97,4 +97,36 @@ router.delete("/:id",(req,res)=>{
     })
 })
 
+router.post("/follow",(req,res)=>{
+    if(!req.session?.user?.id){
+        res.status(401).json({
+            message:"login first!"
+        })
+    } else {
+        db.User.findByPk(req.session.user.id).then(yourData=>{
+            yourData.addFollow(req.body.follow).then(done=>{
+                res.json({
+                    message:"followed!"
+                })
+            })
+        })
+    }
+})
+
+router.post("/unfollow",(req,res)=>{
+    if(!req.session?.user?.id){
+        res.status(401).json({
+            message:"login first!"
+        })
+    } else {
+        db.User.findByPk(req.session.user.id).then(yourData=>{
+            yourData.removeFollow(req.body.unfollow).then(done=>{
+                res.json({
+                    message:"unfollowed!"
+                })
+            })
+        })
+    }
+})
+
 module.exports = router;
