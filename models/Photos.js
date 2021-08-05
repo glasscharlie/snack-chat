@@ -28,6 +28,10 @@ Photos.init(
     url :{
         type: DataTypes.STRING,
     },
+
+    restaurant: {
+        type: DataTypes.STRING,    
+    }
 },
 {
     
