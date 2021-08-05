@@ -8,7 +8,14 @@ module.exports = router;
 
 router.get("/",(req,res)=>{
     db.User.findAll({
-        include:[db.Photos],
+        include:[
+            {
+            model: db.Photos,
+            include:[{
+                model:db.Comment,
+                include:[db.User]
+            }],
+    }]
     }).then(users=>{
        res.json(users);
     }).catch(err=>{
@@ -35,7 +42,12 @@ router.get("/:id",(req,res)=>{
     db.User.findByPk(req.params.id,{
         include:[{
             model:db.Photos
-        }]
+        }, {model:db.User,
+            as:"Followers"
+        },
+        {
+         model:db.User,
+         as:"Followed"}]
     }).then(users=>{
         res.json(users);
     }).catch(err=>{
@@ -47,7 +59,7 @@ router.get("/:id",(req,res)=>{
 router.post("/login",(req,res)=>{
     db.User.findOne({
         where:{
-            email:req.body.email
+            username:req.body.username
         }
     }).then(user=>{
         if(!user){
@@ -83,6 +95,38 @@ router.delete("/:id",(req,res)=>{
         console.log(err);
         res.status(500).json(err);
     })
+})
+
+router.post("/follow",(req,res)=>{
+    if(!req.session?.user?.id){
+        res.status(401).json({
+            message:"login first!"
+        })
+    } else {
+        db.User.findByPk(req.session.user.id).then(yourData=>{
+            yourData.addFollow(req.body.follow).then(done=>{
+                res.json({
+                    message:"followed!"
+                })
+            })
+        })
+    }
+})
+
+router.post("/unfollow",(req,res)=>{
+    if(!req.session?.user?.id){
+        res.status(401).json({
+            message:"login first!"
+        })
+    } else {
+        db.User.findByPk(req.session.user.id).then(yourData=>{
+            yourData.removeFollow(req.body.unfollow).then(done=>{
+                res.json({
+                    message:"unfollowed!"
+                })
+            })
+        })
+    }
 })
 
 module.exports = router;
