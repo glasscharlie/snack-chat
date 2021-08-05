@@ -1,7 +1,7 @@
 const Photos = require('./Photos');
-// const Reviews = require('./Reviews');
+const Comment = require ('./Comment');
 const User = require('./User');
-// const FriendsList = require('./friendslist');
+const Review = require('./Review');
 
 
 User.hasMany(Photos,{
@@ -9,30 +9,38 @@ User.hasMany(Photos,{
     onDelete: 'CASCADE',
 });
 
-
-// User.hasMany(Reviews,{
-//     foreignKey: 'user_id',
-//     onDelete: 'CASCADE',
-// });
-
-// User.hasMany(Reviews,{
-
-//     foreignKey: 'user_id',
-
-//     onDelete: 'CASCADE',
-// });
-
-
-// User.hasOne(Friendslist,{
-//     foreignKey: 'user_id',
-// });
-
 Photos.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-// FriendsList.BelongsTo(User, {
-//     foreignKey: 'user_id',
-// });
+User.hasMany(Review,{
+    onDelete:"CASCADE",
+    foreignKey:{
+        allowNull:false
+    }
+});
+Review.belongsTo(User);
 
-module.exports = { User, Photos };
+User.hasMany(Comment,{
+    onDelete:"CASCADE",
+    foreignKey:{
+        allowNull:false
+    }
+});
+
+User.belongsToMany(User, {
+    through:"FollowersFollows",
+    as:"Followers",
+    foreignKey:"followerId",
+    otherKEy:"FollowId"
+
+});
+User.belongsToMany(User, {
+    through:"FollowersFollows",
+    as:"Followers",
+    foreignKey:"followId",
+    otherKEy:"FollowerId"
+
+});
+
+module.exports = { User, Photos, Comment, Review }
