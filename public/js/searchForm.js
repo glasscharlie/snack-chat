@@ -1,26 +1,20 @@
-document.addEventListener("submit",e=>{
-    if(e.target.matches("#searchForm")){
-        e.preventDefault();
-        if(document.getElementById("userSearch").checked = true) {
-       const searchObj= {
-           body:e.target.children[0].value,
-           postId:e.target.children[1].value
-       }
+const searchForm = document.querySelector("#searchForm");
 
-       fetch("/api/users",{
-           method:"POST",
-           body:JSON.stringify(commentObj),
-           headers:{
-               "Content-Type":"application/json"
-           }
-        
-       }).then(res=>{
-           if(res.ok){
-               location.reload()
-           } else {
-              alert("sad dog")
-           }
-       })
-    }
-}
-})
+searchForm.addEventListener("submit",event=>{
+        event.preventDefault();
+        // if(document.getElementById("restaurantSearch").checked = true) {
+            fetch("/api/photos",{
+                method:"GET",
+                body:JSON.stringify(''),
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            }).then(res=>{
+                if(res.ok){
+                    location.reload()
+                } else {
+                    alert("error")
+                }
+            })
+            // }
+        })
