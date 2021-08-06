@@ -2,7 +2,7 @@ const loginForm = document.querySelector("#loginInformation");
 loginForm.addEventListener("submit",(e)=>{
     e.preventDefault();
     const loginObj={
-        email:document.querySelector("#emailLogin").value,
+        username:document.querySelector("#userNameLogin").value,
         password:document.querySelector("#passwordLogin").value,
     }
     fetch("/api/users/login",{
@@ -25,8 +25,9 @@ const signUpForm = document.querySelector("#signUpInformation");
 signUpForm.addEventListener("submit",(e)=>{
     e.preventDefault();
     const signUpObj={
-        email:document.querySelector("#signUpEmail").value,
+        name:document.querySelector("#signUpName").value,
         username:document.querySelector("#signUpUserName").value,
+        email:document.querySelector("#signUpEmail").value,
         password:document.querySelector("#signUpPassword").value,
     }
     fetch("/api/users",{
