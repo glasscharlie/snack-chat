@@ -27,7 +27,28 @@ router.post("/",(req,res)=>{
     })
 })
 
-router.get("/:restaurant",(req,res)=>{
+router.get("/food/:food",(req,res)=>{
+    db.Photos.findAll({
+        where: {
+            food:req.params.food
+        },
+        include:[
+            {
+            model: db.User,
+            include:[{
+                model:db.Comment,
+                include:[db.User]
+            }],
+    }]
+    }).then(photo=>{
+        res.json(photo);
+    }).catch(err=>{
+        console.log(err);
+        res.status(500).json(err);
+    })
+})
+
+router.get("/restaurant/:restaurant",(req,res)=>{
     db.Photos.findAll({
         where: {
             restaurant:req.params.restaurant

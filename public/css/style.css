@@ -146,7 +146,7 @@ h2 {
   margin: 0px;
   padding: 5px;
   min-height: 50%;
-  oborder: 3px solid #ddd;
+  border: 3px solid #ddd;
   border-radius: 5px;
   background-color:white;
   color: #182c23;
@@ -238,4 +238,9 @@ h2 {
 .modal-window p {
   text-align: left;
   letter-spacing: normal;
+}
+
+.searchSpan {
+  text-decoration: none;
+  color:black;
 }
