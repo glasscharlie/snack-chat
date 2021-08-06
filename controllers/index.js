@@ -30,14 +30,8 @@ const frontEndRoutes = require("./frontEndController")
 //     res.render('search') 
 // });
 
-<<<<<<< HEAD
-router.use("/api",apiRoutes);
-router.use(frontEndController);
-
-=======
 router.use("/api",apiRoutes)
 router.use(frontEndRoutes)
->>>>>>> develop
 
 
 router.get("/readsessions",(req,res)=>{
