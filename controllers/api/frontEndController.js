@@ -13,7 +13,7 @@ router.get("/profile", (req,res)=>{
 
 router.get('/profile/:id', async (req, res) => {
     try {
-      const dbUserData = await User.findByPk(req.body.id, {
+      const dbUserData = await User.findByPk(req.params.id, {
         include: [
           {
             model: User,
