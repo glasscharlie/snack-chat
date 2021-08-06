@@ -35,6 +35,7 @@ Photo.init(
     food: {
         type: DataTypes.STRING,
     }
+    
 },
 {
         sequelize,
