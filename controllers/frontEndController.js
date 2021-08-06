@@ -35,6 +35,7 @@ router.get("/search", (req,res)=>{
     res.render("search");
 })
 
+
 router.get(`/friends`, (req,res)=>{
   // console.log(req.params.id)
   //   User.findByPk({
