@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User, Photo } = require('../models');
+const { User, Photos } = require('../models');
 
 router.get('/', (req,res) => {
   res.render('home') 
@@ -34,8 +34,16 @@ router.get("/search", (req,res)=>{
     res.render("search");
 })
 
-router.get("/friends", (req,res)=>{
-    res.render("friends");
+router.get("/friends:id", (req,res)=>{
+    User.findAll({
+      where: {
+        followers:req.params.id
+      },
+      include:[{
+          model:Photos,
+          include:[User]
+      }]
+    // res.render("friends");
 })
 
 module.exports = router;
