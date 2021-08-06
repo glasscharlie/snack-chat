@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const router = express.Router();
 const { User, Photos } = require('../models');
 
@@ -34,16 +35,21 @@ router.get("/search", (req,res)=>{
     res.render("search");
 })
 
-router.get("/friends:id", (req,res)=>{
-    User.findAll({
-      where: {
-        followers:req.params.id
-      },
-      include:[{
-          model:Photos,
-          include:[User]
-      }]
-    // res.render("friends");
-})
+
+router.get(`/friends`, (req,res)=>{
+  // console.log(req.params.id)
+  //   User.findByPk({
+  //     where: {
+  //       id:req.session.user.id
+  //     },
+  //     include:[{
+  //         model:Photos,
+  //         include:[User]
+  //     }]
+  //   }).then(posts=>{ 
+  //     console.log(posts)
+      res.render("friends");
+// })
 });
+
 module.exports = router;
