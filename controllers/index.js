@@ -20,6 +20,32 @@ router.get('/profile', (req,res) => {
     res.render('profile') 
 });
 
+// Ran added route below:
+
+router.get('/profile/:id', async (req, res) => {
+    try {
+      const dbUserData = await User.findByPk(req.params.id, {
+        include: [
+          {
+            model: User,
+            attributes: [
+              'id',
+              'name',
+              'username',
+              'email',
+            ],
+          },
+        ],
+      });
+  
+      const user = dbUserData.get({ plain: true });
+      res.render('profile', { user });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+
 router.get('/friends', (req,res) => {
     res.render('friends') 
 });

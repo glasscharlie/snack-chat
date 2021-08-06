@@ -4,11 +4,11 @@
 
   <div class="leftCard">
 
-    <h2>{{name}} Profile</h2>
+    <h2>{{user.name}} Profile</h2>
 
     <ul>
-      <li>{{username}}</li>
-      <li>{{email}}</li>
+      <li>{{user.username}}</li>
+      <li>{{user.email}}</li>
       <li>xxx Photos Taken</li>
       <li>yyy Restaurants Visited</li>
     </ul>
@@ -109,7 +109,9 @@
 
 </div>
 
-<!-- modal to add a photo -->
+{{!-- 
+
+<!-- pure.css modal to add a photo -->
 
 <div id="open-modal" class="modal-window">
   <div>
@@ -121,10 +123,10 @@
       <p>[insert Cloudinary code]</p>
     </div>
   </div>
-</div>
-
+</div> --}}
 
 {{!-- original Cloudinary button
+
 <button id="upload_widget" class="cloudinary-button">Upload files</button> --}}
 
 <!-- Cloudinary code follows -->
