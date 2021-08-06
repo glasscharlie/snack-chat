@@ -8,5 +8,4 @@ router.use("/users",userRoutes);
 router.use("/photos",photoRoutes);
 router.use("/comments",commentRoutes);
 
-
 module.exports = router;
