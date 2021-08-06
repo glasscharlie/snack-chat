@@ -33,14 +33,14 @@ User.belongsToMany(User, {
     through:"FollowersFollows",
     as:"Followers",
     foreignKey:"followerId",
-    otherKEy:"FollowId"
+    otherKey:"FollowId"
 
 });
 User.belongsToMany(User, {
     through:"FollowersFollows",
     as:"Followed",
     foreignKey:"followId",
-    otherKEy:"FollowerId"
+    otherKey:"FollowerId"
 
 });
 
