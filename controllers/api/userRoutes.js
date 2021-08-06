@@ -103,7 +103,7 @@ router.post("/follow",(req,res)=>{
         })
     } else {
         db.User.findByPk(req.session.user.id).then(yourData=>{
-            yourData.addFollow(req.body.follow).then(done=>{
+            yourData.addFollowed(req.body.follow).then(done=>{
                 res.json({
                     message:"followed!"
                 })
@@ -119,7 +119,7 @@ router.post("/unfollow",(req,res)=>{
         })
     } else {
         db.User.findByPk(req.session.user.id).then(yourData=>{
-            yourData.removeFollow(req.body.unfollow).then(done=>{
+            yourData.removeFollowed(req.body.unfollow).then(done=>{
                 res.json({
                     message:"unfollowed!"
                 })

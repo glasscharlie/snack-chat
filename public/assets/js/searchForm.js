@@ -9,7 +9,6 @@ searchForm.addEventListener("submit",event=>{
             }).then(res=>{
                 if(res.ok){
                     res.json().then(photos => {
-                        console.log(photos)
                         var photoDiv = document.querySelector(".rightCard")
                         photoDiv.innerHTML = ''
                         for (let i = 0; i < photos.length; i++) {
@@ -42,7 +41,6 @@ searchForm.addEventListener("submit",event=>{
             }).then(res=>{
                 if(res.ok){
                 res.json().then(photos => {
-                    console.log(photos)
                     var photoDiv = document.querySelector(".rightCard")
                     photoDiv.innerHTML = ''
                     for (let i = 0; i < photos.length; i++) {

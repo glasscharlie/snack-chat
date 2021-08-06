@@ -4,8 +4,8 @@ const app = express();
 // const handlebars = require('express-handlebars').create({defaultLayout:'main'});
 
 const router = express.Router();
-const apiRoutes = require("./api");
-const frontEndController = require("./frontEndController");
+const apiRoutes = require("./api")
+const frontEndRoutes = require("./frontEndController")
 
 // app.engine('handlebars', handlebars.engine);
 // app.set('view engine', 'handlebars');
@@ -30,9 +30,14 @@ const frontEndController = require("./frontEndController");
 //     res.render('search') 
 // });
 
+<<<<<<< HEAD
 router.use("/api",apiRoutes);
 router.use(frontEndController);
 
+=======
+router.use("/api",apiRoutes)
+router.use(frontEndRoutes)
+>>>>>>> develop
 
 
 router.get("/readsessions",(req,res)=>{
