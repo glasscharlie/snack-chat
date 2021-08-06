@@ -46,7 +46,6 @@ router.get("/friends:id", (req,res)=>{
           include:[User]
       }]
     // res.render("friends");
-    });
+})
 });
-
 module.exports = router;

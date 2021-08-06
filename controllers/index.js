@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
+const frontEndRoutes = require("./frontEndController")
 
 // const handlebars = require('express-handlebars').create({defaultLayout:'main'});
 
 const router = express.Router();
 const apiRoutes = require("./api")
-const frontEndRoutes = require("./frontEndController")
 
 // app.engine('handlebars', handlebars.engine);
 // app.set('view engine', 'handlebars');
