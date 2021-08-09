@@ -54,5 +54,19 @@ router.get(`/friends`, (req,res)=>{
       res.render("friends");
 })
 });
+router.get("/login",(req,res)=>{
+  if(req.session.user?.id){
+    (console.log("its working!"))
+      res.redirect("/profile")
+  } else {
+      res.render("login",{logged_in:req.session.user});
+  }
+})
+
+router.get("/logout",(req,res)=>{
+  req.session.destroy(()=>{
+      res.redirect("/")
+  })
+})
 
 module.exports = router;
