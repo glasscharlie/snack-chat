@@ -4,15 +4,15 @@ const router = express.Router();
 const { User, Photos,} = require('../models');
 
 router.get('/', (req,res) => {
-  res.render('home',{loggedInUser:req.session.user}) 
+  res.render('home',{logged_in:req.session.user}) 
 });
 
 router.get("/login", (req,res)=>{
-    res.render("login",{loggedInUser:req.session.user});
+    res.render("login",{logged_in:req.session.user});
 });
 
 router.get("/profile", (req,res)=>{
-    res.render("profile",{loggedInUser:req.session.user});
+    res.render("profile",{logged_in:req.session.user});
 });
 
 router.get('/profile/:id', async (req, res) => {
@@ -33,7 +33,7 @@ router.get('/profile/:id', async (req, res) => {
 });
 
 router.get("/search", (req,res)=>{
-    res.render("search",{loggedInUser:req.session.user});
+    res.render("search",{logged_in:req.session.user});
 });
 
 
