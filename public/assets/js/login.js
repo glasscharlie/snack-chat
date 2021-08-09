@@ -14,6 +14,9 @@ loginForm.addEventListener("submit",(e)=>{
     }).then(res=>{
         if(res.ok){
             console.log("successful login")
+            res.json().then(data=>{
+                location.assign(`/profile/${data.id}`)
+            })
         } else {
             alert("there was an error")
         }
@@ -39,6 +42,9 @@ signUpForm.addEventListener("submit",(e)=>{
     }).then(res=>{
         if(res.ok){
             console.log("successful sign up!")
+            res.json().then(data=>{
+                location.assign(`/profile/${data.id}`)
+            })
         } else {
             alert("there was an error")
         }

@@ -4,15 +4,15 @@ const router = express.Router();
 const { User, Photos,} = require('../models');
 
 router.get('/', (req,res) => {
-  res.render('home') 
+  res.render('home',{loggedInUser:req.session.user}) 
 });
 
 router.get("/login", (req,res)=>{
-    res.render("login");
+    res.render("login",{loggedInUser:req.session.user});
 });
 
 router.get("/profile", (req,res)=>{
-    res.render("profile");
+    res.render("profile",{loggedInUser:req.session.user});
 });
 
 router.get('/profile/:id', async (req, res) => {
@@ -33,7 +33,7 @@ router.get('/profile/:id', async (req, res) => {
 });
 
 router.get("/search", (req,res)=>{
-    res.render("search");
+    res.render("search",{loggedInUser:req.session.user});
 });
 
 
@@ -54,7 +54,7 @@ router.get(`/friends`, (req,res)=>{
       res.render("friends");
 })
 });
-router.get("/login",(req,res)=>{
+router.get("/profile",(req,res)=>{
   if(req.session.user?.id){
     (console.log("its working!"))
       res.redirect("/profile")
