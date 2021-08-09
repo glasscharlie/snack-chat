@@ -1,7 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const router = express.Router();
-const { User, Photos } = require('../models');
+const { User, Photos,} = require('../models');
 
 router.get('/', (req,res) => {
   res.render('home') 
@@ -38,19 +38,21 @@ router.get("/search", (req,res)=>{
 
 
 router.get(`/friends`, (req,res)=>{
-  // console.log(req.params.id)
-  //   User.findByPk({
-  //     where: {
-  //       id:req.session.user.id
-  //     },
-  //     include:[{
-  //         model:Photos,
-  //         include:[User]
-  //     }]
-  //   }).then(posts=>{ 
-  //     console.log(posts)
+  // console.log(req.session.user.id)
+    User.findByPk(1,{
+      include:[{
+        model: User,
+        as:"Followed", include:[Photos]} ]
+    }).then(posts=>{ 
+      console.log(posts.Followed[0].name);
+      Following = []
+      for (let i = 0; i < posts.Followed.length; i++) {
+        console.log(posts.Followed[i].Photos[posts.Followed[i].Photos.length -1].review)
+        data = {"username":posts.Followed[i].username, "img":posts.Followed[i].Photos[posts.Followed[i].Photos.length -1].url, "description": posts.Followed[i].Photos[posts.Followed[i].Photos.length -1].review}
+
+      }
       res.render("friends");
-// })
+})
 });
 
 module.exports = router;
