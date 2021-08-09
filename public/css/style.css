@@ -1,5 +1,5 @@
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif
+  font-family: Georgia, 'Times New Roman', Times, serif;
   margin: 0;
   background-color: white;
 }
@@ -69,7 +69,7 @@ footer {
   font-size: small;
 }
 
-#newPhoto {
+#newPhoto, #newFriend {
   display:block;
   float:right;
 }
@@ -189,8 +189,8 @@ h2 {
   z-index: 999;
   opacity: 0;
   pointer-events: none;
-  webkit-transition: all 0.25s;
-  moz-transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
   transition: all 0.25s;
 }
 
@@ -238,6 +238,14 @@ h2 {
 .modal-window p {
   text-align: left;
   letter-spacing: normal;
+}
+
+.followButton {
+  color: white
+}
+
+.followButton:visited {
+  color: white
 }
 
 .searchSpan {
