@@ -38,20 +38,16 @@ router.get("/search", (req,res)=>{
 
 
 router.get(`/friends`, (req,res)=>{
-  // console.log(req.session.user.id)
     User.findByPk(req.session.user.id,{
       include:[{
         model: User,
         as:"Followed", include:[Photos]} ]
     }).then(posts=>{ 
-      // console.log(posts.Followed[0].name);
       following = []
       for (let i = 0; i < posts.Followed.length; i++) {
-        console.log(posts.Followed[i].Photos[posts.Followed[i].Photos.length -1].review)
         data = {"username":posts.Followed[i].username, "img":posts.Followed[i].Photos[posts.Followed[i].Photos.length -1].url, "description": posts.Followed[i].Photos[posts.Followed[i].Photos.length -1].review}
         following.push(data)
       }
-      console.log(following)
       res.render("friends", {following:following});
 })
 });

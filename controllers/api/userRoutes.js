@@ -55,6 +55,18 @@ router.get("/:id",(req,res)=>{
     })
 })
 
+router.get("/getusername/:username",(req,res)=>{
+    db.User.findOne({
+        where: {username:req.params.username}
+    }).then(user=>{
+        res.json(user);
+    }).catch(err=>{
+        console.log(err);
+        res.status(500).json(err);
+    })
+})
+
+
 router.post("/login",(req,res)=>{
     db.User.findOne({
         where:{
@@ -102,7 +114,8 @@ router.post("/follow",(req,res)=>{
             message:"login first!"
         })
     } else {
-        db.User.findByPk(req.session.user.id).then(yourData=>{
+        db.User.findByPk(req.session.user.id)
+        .then(yourData=>{
             yourData.addFollowed(req.body.follow).then(done=>{
                 res.json({
                     message:"followed!"
