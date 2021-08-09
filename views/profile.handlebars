@@ -4,20 +4,23 @@
 
   <div class="leftCard">
 
-    <h2>{{user.name}} Profile</h2>
+    <h2>Your Profile</h2>
 
     <ul>
-      <li>{{user.username}}</li>
-      <li>{{user.email}}</li>
-      {{!-- <li>xxx Photos Taken</li>
-      <li>yyy Restaurants Visited</li> --}}
+      <li>{{ user.name }}</li>
+      <li>{{ user.username }}</li>
+      <li>{{ user.email }}</li>
+      {{!--
+      <li>xxx Photos Taken</li>
+      <li>yyy Restaurants Visited</li>
+      --}}
     </ul>
 
     <h2>Following</h2>
 
     <ul>
     {{#each friendsList as |friend|}}
-      <li>{{friend}}</li>
+      <li>{{ friend }}</li>
     {{/each}}
     </ul>
 
@@ -57,8 +60,9 @@
 
     {{#each photos as |photo|}} -->
     <div class="foodCard pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-3">
-      <a href="{{photo.review}}">
-        <img src="{{photo.url}}" alt="{{photo.id}}">{{photo.id}}
+      <a href="{{ photo.url }}">
+        <img src="{{ photo.url }}" alt="{{ photo.id }}"><br>
+        {{ photo.review }}
       </a>
     </div>
     {{/each}}
