@@ -28,7 +28,6 @@ const photodata = [
     url: 'fakeurl.com',
     restaurant: 'McDonalds',
   },
-
 ];
 
 const seedPhoto = () => Photos.bulkCreate(photodata);
