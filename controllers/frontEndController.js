@@ -4,7 +4,7 @@ const router = express.Router();
 const { User, Photos,} = require('../models');
 
 router.get('/', (req,res) => {
-  res.render('home',{logged_in:req.session.user}) 
+  res.render('home',{loggedInUser:req.session.user});
 });
 
 router.get("/login", (req,res)=>{
