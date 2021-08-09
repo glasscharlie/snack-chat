@@ -2,10 +2,10 @@
   "name": "snack-chat",
   "version": "1.0.0",
   "description": "This application is a mock-up of a photo-sharing social media site.",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "node index.js",
     "seed": "node ./seeds/index.js"
   },
   "repository": {
