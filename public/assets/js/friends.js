@@ -31,8 +31,8 @@ searchForm.addEventListener("submit",event=>{
     })
   })
 
-  unfollow.addEventListener("submit",event=>{
-    event.preventDefault()
-    location.assign(`/friends.handlebars`)
-})
+//   unfollow.addEventListener("submit",event=>{
+//     event.preventDefault()
+//     location.assign(`/friends.handlebars`)
+// })
 
