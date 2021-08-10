@@ -18,10 +18,11 @@ loginForm.addEventListener("submit",(e)=>{
         if(res.ok){
             console.log("successful login")
             res.json().then(data=>{
-                location.assign(`/profile/${data.id}`)
+
+                location.assign(`/profile/${data.id}`);
             })
         } else {
-            alert("there was an error")
+            alert("Please check all fields as there is an error.")
         }
     })
 
@@ -49,7 +50,7 @@ signUpForm.addEventListener("submit",(e)=>{
                 location.assign(`/profile/${data.id}`)
             })
         } else {
-            alert("there was an error")
+            alert("Please check all fields as there is an error.")
         }
     })
 
