@@ -9,7 +9,7 @@ router.get('/', (req,res) => {
 });
 
 router.get("/login", (req,res)=>{
-    res.render("login",{logged_in:req.session.user});
+    res.render("login",{loggedInUser:req.session.user});
 });
 
 
@@ -102,16 +102,16 @@ router.get(`/profile/:id`, (req,res)=>{
 
     }
       
-      res.render("profile",{profileData:dataArr});
+      res.render("profile",{profileData:dataArr, loggedInUser:req.session.user});
 })
   }
   else {
-    res.render("login",{logged_in:req.session.user});
+    res.render("login",{loggedInUser:req.session.user});
 }
 });
 
 router.get("/search", (req,res)=>{
-    res.render("search",{logged_in:req.session.user});
+    res.render("search",{loggedInUser:req.session.user});
 });
 
 
@@ -132,11 +132,11 @@ router.get(`/friends`, (req,res)=>{
       }
         following.push(data)
       }
-      res.render("friends", {following:following});
+      res.render("friends", {following:following, loggedInUser:req.session.user});
 })
   }
   else {
-    res.render("login",{logged_in:req.session.user});
+    res.render("login",{loggedInUser:req.session.user});
 }
 });
 

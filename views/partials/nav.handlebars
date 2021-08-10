@@ -2,12 +2,15 @@
   <nav>
 
 
-    <a href="/login">login</a>
+   {{#unless loggedInUser}}
+   <a href="/login">login</a>
+    {{/unless}}
     {{#if loggedInUser}}
     <a href="/profile/{{loggedInUser.id}}">profile</a>
-    {{/if}}
     <a href="/friends">friends</a>
     <a href="/search">search</a>
+    <a href="/logout">logout</a>
+    {{/if}}
 
 
 
