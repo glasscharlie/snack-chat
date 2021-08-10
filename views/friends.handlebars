@@ -9,6 +9,10 @@
       <ul>
       {{#each following}}
         <li>{{username}}</li>
+        <form class="unfollowForm"action="/api/users/unfollow/{{id}}" method="post" >
+            <input class="unfollowInput" name="_method" type="hidden" value="delete">
+            <button class ="unfollowButton"type="submit"  id= "{{id}}" value="{{id}}">Unfollow</button>
+            </form>
         <br>
       {{/each}}
       </ul>
@@ -29,6 +33,7 @@
       
       <!-- image gallery of user's photos -->
     {{#each following}}
+    {{#if img}}
       <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
         <a href="#">
           <h4>{{username}}</h4>
@@ -36,6 +41,7 @@
           <span id="">{{description}}</span>
         </a>
       </div>
+      {{/if}}
       {{/each}}
 
 

@@ -58,59 +58,16 @@
         <div><button id="upload_widget">+photo</button></div>
     </div>
 
-    {{#each photos as |photo|}} -->
-    <div class="foodCard pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-3">
-      <a href="{{ photo.url }}">
-        <img src="{{ photo.url }}" alt="{{ photo.id }}"><br>
-        {{ photo.review }}
-      </a>
-    </div>
+    {{#each photos as |photo|}}
+      {{> user-photos }}
     {{/each}}
-
 
   <!-- test photo gallery -->
 
     {{!-- <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-      <a href="#">
         <img src="./assets/images/splash02.jpg" alt="test"><br />
         <span id="">test</span>
-      </a>
-    </div>
-
-    <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-      <a href="#">
-        <img src="./assets/images/splash01.jpg" alt="test"><br />
-        <span id="">test</span>
-      </a>
-    </div>
-
-    <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-      <a href="#">
-        <img src="./assets/images/splash03.jpg" alt="test"><br />
-        <span id="">test</span>
-      </a>
-    </div>
-
-    <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-      <a href="#">
-        <img src="./assets/images/splash04.jpg" alt="test"><br />
-        <span id="">test</span>
-      </a>
-    </div>
-
-    <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-      <a href="#">
-        <img src="./assets/images/splash05.jpg" alt="test"><br />
-        <span id="">test</span>
-      </a>
-    </div>
-
-    <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-      <a href="#">
-        <img src="./assets/images/splash06.jpg" alt="test"><br />
-        <span id="">test</span>
-      </a>
-    </div>  --}}
+    </div> --}}
 
   </div>
 
@@ -135,11 +92,11 @@ document.getElementById("upload_widget").addEventListener("click", function(){
   }, false);
 </script>
 
-{{!-- 
+
 
 <!-- pure.css modal to add a photo -->
 
-<div id="open-modal" class="modal-window">
+{{!-- <div id="open-modal" class="modal-window">
   <div>
     <div style="float:right;"><a href="#modal-close"><button>close</button></a></div>
     <!-- <a href="#modal-close" title="Close" class="modal-close">close &times;</a> -->

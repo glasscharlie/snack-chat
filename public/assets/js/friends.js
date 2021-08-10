@@ -1,4 +1,5 @@
 const searchForm = document.querySelector("#searchForm");
+// const unfollow = document.querySelector(".unfollowForm");
 
 searchForm.addEventListener("submit",event=>{
     event.preventDefault()
@@ -9,11 +10,19 @@ searchForm.addEventListener("submit",event=>{
       if(res.ok){
         console.log("Request complete! response:", res.body)
         res.json().then(user => {
+          console.log(user.id)
+          obj = {follow:user.id}
+          data = JSON.stringify(obj)
+          console.log(data)
           fetch(`/api/users/follow`,{
             method:"POST",
-            body: user.id
+            body: data,
+            headers:{
+              "Content-Type":"application/json"
+          }
           }).then(follow => {
-            console.log(follow)
+            console.log('followed')
+            location.assign(`/friends`)
           })
         })
           }else {
@@ -21,3 +30,9 @@ searchForm.addEventListener("submit",event=>{
         }
     })
   })
+
+  unfollow.addEventListener("submit",event=>{
+    event.preventDefault()
+    location.assign(`/friends.handlebars`)
+})
+
