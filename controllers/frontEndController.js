@@ -102,11 +102,13 @@ router.get(`/profile/:id`, (req,res)=>{
 
     }
       
-      res.render("profile",{profileData:dataArr,loggedInUser:req.session.user });
+
+      res.render("profile",{profileData:dataArr, loggedInUser:req.session.user});
+
 })
   }
   else {
-    res.render("login",{logged_in:req.session.user});
+    res.render("login",{loggedInUser:req.session.user});
 }
 });
 
