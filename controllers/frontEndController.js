@@ -4,6 +4,7 @@ const router = express.Router();
 const { User, Photos,} = require('../models');
 
 router.get('/', (req,res) => {
+  console.log(req.session.user)
   res.render('home',{loggedInUser:req.session.user});
 });
 
@@ -11,36 +12,38 @@ router.get("/login", (req,res)=>{
     res.render("login",{logged_in:req.session.user});
 });
 
-router.get("/profile", (req,res)=>{
-    res.render("profile",{logged_in:req.session.user});
-});
 
-router.get('/profile/:id', async (req, res) => {
-try {
-  console.log('\nUSER ID: ' + req.params.id);
-  const dbProfileData = await User.findByPk(req.params.id, {
-    include: [
-      {
-        // model: User,
-        model: Photos,
-      },
-    ],
-  });
+// router.get("/profile", (req,res)=>{
+//     res.render("profile",{loggedInUser:req.session.user});
+// });
 
-  console.log('\ndbProfileData:');
-  console.log(dbProfileData);
 
-  const profile = dbProfileData.get({ plain: true });
+// router.get('/profile/:id', async (req, res) => {
+// try {
+//   console.log('\nUSER ID: ' + req.params.id);
+//   const dbProfileData = await User.findByPk(req.params.id, {
+//     include: [
+//       {
+//         // model: User,
+//         model: Photos,
+//       },
+//     ],
+//   });
 
-  console.log('\nprofile:');
-  console.log(profile);
+//   console.log('\ndbProfileData:');
+//   console.log(dbProfileData);
 
-  res.render('profile', { profile });
+//   const profile = dbProfileData.get({ plain: true });
 
-} catch (err) {
-  console.log(err);
-  res.status(500).json(err);
-}
+//   console.log('\nprofile:');
+//   console.log(profile);
+
+//   res.render('profile', { profile });
+
+// } catch (err) {
+//   console.log(err);
+//   res.status(500).json(err);
+// }
 
 // original code for "get profile/:id" follows:
 //     try {
@@ -59,6 +62,52 @@ try {
 //     }
 // });
 
+// });
+
+router.get(`/profile/:id`, (req,res)=>{
+  if(req.session.user?.id){
+    User.findByPk(req.params.id,{
+      include:[{
+        model:Photos
+    }, {model:User,
+        as:"Followers"
+    },
+    {
+     model:User,
+     as:"Followed"}]
+    }).then(posts=>{ 
+      console.log(posts.username)
+      dataArr = []
+      dataArr.push({"user":posts.name, "username":posts.username, "email":posts.email })
+      console.log(posts.Photos)
+      
+      if (posts.Photos.length > 0) {
+      for (let i = 0; i < posts.Photos.length; i++) {
+        data = {"id":posts.Photos[i].id, "username":posts.Photos[i].username, "img":posts.Photos[i].url, "description": posts.Photos[i].review}
+        dataArr.push(data)
+      }
+    }
+    if (posts.Followed.length > 0) {
+      for (let x = 0; x < posts.Followed.length; x++) {
+        data = {"followed_id":posts.Followed[x].id, "followed_username":posts.Followed[x].username}
+        dataArr.push(data)
+      }
+
+    }
+    if (posts.Followers.length > 0) {
+      for (let z = 0; z < posts.Followers.length; z++) {
+        data = {"followers_id":posts.Followers[z].id, "followers_username":posts.Followers[z].username}
+        dataArr.push(data)
+      }
+
+    }
+      
+      res.render("profile",{profileData:dataArr});
+})
+  }
+  else {
+    res.render("login",{logged_in:req.session.user});
+}
 });
 
 router.get("/search", (req,res)=>{
@@ -91,14 +140,14 @@ router.get(`/friends`, (req,res)=>{
 }
 });
 
-router.get("/profile",(req,res)=>{
-  if(req.session.user?.id){
-    (console.log("its working!"))
-      res.redirect("/profile")
-  } else {
-      res.render("login",{logged_in:req.session.user});
-  }
-})
+// router.get("/profile",(req,res)=>{
+//   if(req.session.user?.id){
+//     (console.log("its working!"))
+//       res.redirect("/profile")
+//   } else {
+//       res.render("login",{logged_in:req.session.user});
+//   }
+// })
 
 router.get("/logout",(req,res)=>{
   req.session.destroy(()=>{
