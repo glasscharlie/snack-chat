@@ -6,14 +6,17 @@
 
       <h2>Following</h2>
 
-      <ul>
+      <ul style="width:100%;">
       {{#each following}}
-        <li>{{username}}</li>
         <form class="unfollowForm"action="/api/users/unfollow/{{id}}" method="post" >
+          <li style="width:100%; height:40px;">
+            <div>
+            {{username}}
             <input class="unfollowInput" name="_method" type="hidden" value="delete">
-            <button class ="unfollowButton"type="submit"  id= "{{id}}" value="{{id}}">Unfollow</button>
-            </form>
-        <br>
+            <button class="unfollowButton" type="submit" id="{{id}}" value="{{id}}">unfollow</button>
+            </div>
+          </li>
+        </form>
       {{/each}}
       </ul>
 
