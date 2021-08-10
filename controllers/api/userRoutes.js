@@ -137,7 +137,9 @@ router.post("/unfollow/:id",(req,res)=>{
     } else {
         db.User.findByPk(req.session.user.id).then(yourData=>{
             yourData.removeFollowed(req.params.id).then(done=>{
-                res.status(200).redirect('/friends')
+                res.json({
+                    message:"unfollowed!"
+                })
                 console.log('unfollowed')
             })
         })
