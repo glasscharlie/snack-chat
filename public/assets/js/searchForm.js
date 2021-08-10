@@ -1,3 +1,4 @@
+
 const searchForm = document.querySelector("#searchForm");
 
 searchForm.addEventListener("submit",event=>{
@@ -15,8 +16,8 @@ searchForm.addEventListener("submit",event=>{
                             var displayDiv = document.createElement("div")
                             displayDiv.setAttribute('class',"foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4")
                             photoDiv.append(displayDiv)
-                            link = document.createElement("a")
-                            link.setAttribute("class", 'searchSpan')
+                            link = document.createElement("a");
+                            link.setAttribute("href", `profile/${photos[i].user_id}`);
                             displayDiv.append(link)
                             var user = document.createElement("h4")
                             user.textContent = photos[i].user.username
@@ -48,7 +49,7 @@ searchForm.addEventListener("submit",event=>{
                         displayDiv.setAttribute('class',"foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4")
                         photoDiv.append(displayDiv)
                         link = document.createElement("a")
-                        link.setAttribute("class", 'searchSpan')
+                        link.setAttribute("href", `/profile/${photos[i].user_id}`);
                         displayDiv.append(link)
                         var user = document.createElement("h4")
                         user.textContent = photos[i].user.username

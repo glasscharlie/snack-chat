@@ -142,6 +142,26 @@ router.get(`/friends`, (req,res)=>{
 }
 });
 
+
+router.get(`/random`, (req,res)=>{
+  if(req.session.user?.id){
+    userArr = []
+    User.findAll().then(user=>{ 
+      const randomNum = Math.floor(Math.random() * user.length)
+      for (let i = 0; i < user.length; i++) {
+        if (user[i].id !== req.session.user) {
+        userArr.push(user[i].id);
+        }
+      }
+      random = userArr[randomNum]
+      res.redirect(`/profile/${random}`);
+})
+  }
+  else {
+    res.render("login", {loggedInUser:req.session.user});
+}
+});
+
 // router.get("/profile",(req,res)=>{
 //   if(req.session.user?.id){
 //     (console.log("its working!"))
