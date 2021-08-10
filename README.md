@@ -12,7 +12,8 @@ This application is a group project mock-up of a social media application in whi
   5. [Contribution](#contribution)
   6. [Testing](#testing)
   7. [Questions](#questions)
-  8. [License](#license)
+  8. [Screenshots](#screenshots)
+  9. [License](#license)
   
 ## Description
 
@@ -46,10 +47,13 @@ Testing of code was conducted in Insomnia and in-browser; error messages were pa
 
 Please don't hesitate to reach out to us via GitHub or email if you've got any questions! Thank you for checking out our app.
 
-* Charles - [GitHub Profile](https://github.com), [Email](mailto:rangamboa@gmail.com)
-* Jose - [GitHub Profile](https://github.com), [Email](mailto:rangamboa@gmail.com)
-* Marcos - [GitHub Profile](https://github.com), [Email](mailto:rangamboa@gmail.com)
+* Charles - [GitHub Profile](https://github.com/glasscharlie), [Email](mailto:charlie-glass@live.com)
+* Marcos - [GitHub Profile](https://github.com/marcostrejo23), [Email](mailto:marcostrejo23@gmail.com)
 * Ran - [GitHub Profile](https://github.com/rangamboa), [Email](mailto:rangamboa@gmail.com)
+
+## Screenshots
+
+*Screenshots go here.*
 
 ## License
 
@@ -60,4 +64,4 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
-@2021 Charles Glass, Jose Benicio, Marcos Trejo & Ran Gamboa.
+@2021 Charles Glass, Marcos Trejo & Ran Gamboa.
