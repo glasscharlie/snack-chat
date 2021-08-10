@@ -16,20 +16,49 @@ router.get("/profile", (req,res)=>{
 });
 
 router.get('/profile/:id', async (req, res) => {
-    try {
+try {
+  console.log('\nUSER ID: ' + req.params.id);
+  const dbProfileData = await User.findByPk(req.params.id, {
+    include: [
+      {
+        model: User,
+        model: Photos,
+      },
+    ],
+  });
 
-      // const userId = req.params.id;  
-      console.log(req.params.id);
+  console.log('\ndbProfileData:');
+  console.log(dbProfileData);
 
-      const dbUserData = await User.findByPk(req.params.id); 
+  const profile = dbProfileData.get({ plain: true });
+
+  console.log('\nprofile:');
+  console.log(profile);
+
+  res.render('profile', { profile });
+
+} catch (err) {
+  console.log(err);
+  res.status(500).json(err);
+}
+
+// original code for "get profile/:id" follows:
+//     try {
+
+//       // const userId = req.params.id;  
+//       console.log(req.params.id);
+
+//       const dbUserData = await User.findByPk(req.params.id); 
  
-      const user = dbUserData.get({ plain: true });
-      console.log(dbUserData);
-      res.render('profile', { user });
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
-    }
+//       const user = dbUserData.get({ plain: true });
+//       console.log(dbUserData);
+//       res.render('profile', { user });
+//     } catch (err) {
+//       console.log(err);
+//       res.status(500).json(err);
+//     }
+// });
+
 });
 
 router.get("/search", (req,res)=>{
@@ -53,6 +82,7 @@ router.get(`/friends`, (req,res)=>{
       }
       res.render("friends");
 })
+
 });
 router.get("/profile",(req,res)=>{
   if(req.session.user?.id){

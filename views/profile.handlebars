@@ -4,17 +4,19 @@
 
   <div class="leftCard">
 
-    <h2>Your Profile</h2>
+    <h2>Profile Info</h2>
 
-    <ul>
-      <li>{{ user.name }}</li>
-      <li>{{ user.username }}</li>
-      <li>{{ user.email }}</li>
+    {{> user-info }}
+
+    {{!-- <ul>
+      <li>{{ User.name }}</li>
+      <li>{{ User.username }}</li>
+      <li>{{ User.email }}</li>
       {{!--
       <li>xxx Photos Taken</li>
       <li>yyy Restaurants Visited</li>
       --}}
-    </ul>
+    </ul> --}}
 
     <h2>Following</h2>
 
@@ -58,9 +60,11 @@
         <div><button id="upload_widget">+photo</button></div>
     </div>
 
-    {{#each photos as |photo|}}
+    {{#each user.photos as |photo|}}
       {{> user-photos }}
     {{/each}}
+
+
 
   <!-- test photo gallery -->
 
