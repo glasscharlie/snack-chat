@@ -4,6 +4,7 @@ const router = express.Router();
 const { User, Photos,} = require('../models');
 
 router.get('/', (req,res) => {
+  console.log(req.session.user)
   res.render('home',{loggedInUser:req.session.user});
 });
 
