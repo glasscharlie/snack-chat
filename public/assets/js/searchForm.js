@@ -19,7 +19,7 @@ searchForm.addEventListener("submit",event=>{
                             link.setAttribute("class", 'searchSpan')
                             displayDiv.append(link)
                             var user = document.createElement("h4")
-                            user.textContent = photos[i].user.name
+                            user.textContent = photos[i].user.username
                             link.append(user)
                             var picture = document.createElement("img")
                             picture.setAttribute('src',photos[i].url)
@@ -51,7 +51,7 @@ searchForm.addEventListener("submit",event=>{
                         link.setAttribute("class", 'searchSpan')
                         displayDiv.append(link)
                         var user = document.createElement("h4")
-                        user.textContent = photos[i].user.name
+                        user.textContent = photos[i].user.username
                         link.append(user)
                         var picture = document.createElement("img")
                         picture.setAttribute('src',photos[i].url)
