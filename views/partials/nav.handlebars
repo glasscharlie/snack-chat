@@ -1,14 +1,18 @@
+<script>
+  console.log('calling nav');
+</script>
+
 <div class="pure-u-1 pure-u-sm-1 pure-u-md-3-5 pure-u-lg-1-2">
   <nav>
 
-    <a href="/login">login</a>
-    <a href="/profile/{{logged_in.id}}">profile</a>
-    <a href="/friends">friends</a>
-    <a href="/search">search</a>
-    <a href="/logout">logout</a>
-
- 
-   
-    
+    {{#if logged_in.id}}
+      <a href="/profile/{{logged_in.id}}">profile</a>
+      <a href="/friends">friends</a>
+      <a href="/search">search</a>
+      <a href="/logout">logout</a>
+    {{else}}
+      <a href="/login">login</a>
+    {{/if}}
+      
   </nav>
 </div>
