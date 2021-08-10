@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const db = require('../../models');
+const path = require('path');
 
 module.exports = router;
 
@@ -55,6 +56,18 @@ router.get("/:id",(req,res)=>{
     })
 })
 
+router.get("/getusername/:username",(req,res)=>{
+    db.User.findOne({
+        where: {username:req.params.username}
+    }).then(user=>{
+        res.json(user);
+    }).catch(err=>{
+        console.log(err);
+        res.status(500).json(err);
+    })
+})
+
+
 router.post("/login",(req,res)=>{
     db.User.findOne({
         where:{
@@ -102,27 +115,30 @@ router.post("/follow",(req,res)=>{
             message:"login first!"
         })
     } else {
-        db.User.findByPk(req.session.user.id).then(yourData=>{
+        console.log(req.session.user.id)
+        db.User.findByPk(req.session.user.id)
+        .then(yourData=>{
+            console.log(req.body.follow)
             yourData.addFollowed(req.body.follow).then(done=>{
                 res.json({
                     message:"followed!"
                 })
+                console.log('followed')
             })
         })
     }
 })
 
-router.post("/unfollow",(req,res)=>{
+router.post("/unfollow/:id",(req,res)=>{
     if(!req.session?.user?.id){
         res.status(401).json({
             message:"login first!"
         })
     } else {
         db.User.findByPk(req.session.user.id).then(yourData=>{
-            yourData.removeFollowed(req.body.unfollow).then(done=>{
-                res.json({
-                    message:"unfollowed!"
-                })
+            yourData.removeFollowed(req.params.id).then(done=>{
+                res.status(200).redirect('/friends')
+                console.log('unfollowed')
             })
         })
     }
