@@ -87,6 +87,7 @@ var myWidget = cloudinary.createUploadWidget({
       imageURL = result.info.secure_url;
       console.log(imageURL);
       addPhoto(imageURL);
+      document.getElementById('url').setAttribute('value',imageURL)
     }
   }
 )
@@ -120,7 +121,14 @@ function addPhoto(req) {
     <div>
       <p>Add your description/review here.</p>
       <form id="submitReview">
+            {{#each profileData}}
+            {{#if email}}
+        <input id="user_id" name="_method" type="hidden" value="{{user_id}}">
+        {{/if}}
+        {{/each}}
+        <input id="url" name="_method" type="hidden" value="">
         <input id="restaurant" name="restaurant" placeholder="Where did you eat?">
+        <input id="food" name="food" placeholder="what food did you eat?">
         <textarea id="review" name="review" rows="4" cols="40" placeholder="How was the food?"></textarea>
         <br>
         <button type="submit" value="submit" style="float:right;">submit</button>
@@ -130,6 +138,7 @@ function addPhoto(req) {
   </div>
 </div>
 
+<script src="/assets/js/profile.js"></script>
 
 {{!-- original Cloudinary button
 

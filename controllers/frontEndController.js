@@ -28,7 +28,7 @@ router.get(`/profile/:id`, (req,res)=>{
     }).then(posts=>{ 
       console.log(posts.username)
       dataArr = []
-      dataArr.push({"user":posts.name, "username":posts.username, "email":posts.email })
+      dataArr.push({"user_id":posts.id, "user":posts.name, "username":posts.username, "email":posts.email })
       console.log(posts.Photos)
       
       if (posts.Photos.length > 0) {
