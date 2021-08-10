@@ -21,7 +21,7 @@ try {
   const dbProfileData = await User.findByPk(req.params.id, {
     include: [
       {
-        model: User,
+        // model: User,
         model: Photos,
       },
     ],
