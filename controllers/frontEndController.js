@@ -8,11 +8,11 @@ router.get('/', (req,res) => {
 });
 
 router.get("/login", (req,res)=>{
-    res.render("login",{loggedInUser:req.session.user});
+    res.render("login",{logged_in:req.session.user});
 });
 
 router.get("/profile", (req,res)=>{
-    res.render("profile",{loggedInUser:req.session.user});
+    res.render("profile",{logged_in:req.session.user});
 });
 
 router.get('/profile/:id', async (req, res) => {
@@ -62,7 +62,7 @@ try {
 });
 
 router.get("/search", (req,res)=>{
-    res.render("search",{loggedInUser:req.session.user});
+    res.render("search",{logged_in:req.session.user});
 });
 
 
