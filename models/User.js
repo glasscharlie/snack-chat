@@ -63,9 +63,10 @@ User.init (
             return err;
           }
         },
-    
-
     },
+  
+      individualHooks: true,
+    
     sequelize,
     timestamps: false,
     freezeTableName: true,

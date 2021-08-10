@@ -1,10 +1,13 @@
 const loginForm = document.querySelector("#loginInformation");
 loginForm.addEventListener("submit",(e)=>{
     e.preventDefault();
+    console.log(document.querySelector("#userNameLogin").value,);
+    console.log(document.querySelector("#passwordLogin").value,);
     const loginObj={
         username:document.querySelector("#userNameLogin").value,
         password:document.querySelector("#passwordLogin").value,
     }
+    console.log(loginObj)
     fetch("/api/users/login",{
         method: "POST",
         body: JSON.stringify(loginObj),
