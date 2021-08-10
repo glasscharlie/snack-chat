@@ -12,6 +12,7 @@
     {{#if loggedInUser}}
     <a href="/profile/{{loggedInUser.id}}">profile</a>
     <a href="/friends">friends</a>
+    <a href="#" id="randomButton">random</a>
     <a href="/search">search</a>
     <a href="/logout">logout</a>
     {{/if}}
@@ -19,3 +20,29 @@
     
   </nav>
 </div>
+
+<script>
+
+const randomUser = document.querySelector('#randomButton'); 
+randomUser.addEventListener('click', (event => {
+
+  console.log('hi');
+
+  {{!-- const getUsers = async params => {
+  const { count, rows: users } = await User.findAndCountAll({
+    order: [['id', 'ASC']],
+    ...params,
+  });
+  console.log(count);
+  return { count, students }; --}}
+}
+
+
+    const randomNum = Math.ceil(Math.random() * 6);
+    const splashURL = '../assets/images/splash0' + randomNum + '.jpg';
+    // console.log(splashURL);
+    document.getElementById("splashImage").src = splashURL;
+
+}));
+
+</script>
