@@ -47,8 +47,8 @@
 
     <div class="subHeader pure-u-1">
         <div><h2>Photo Gallery</h2></div>
-        <!-- <div><a href="#open-modal"><button id="newPhoto">+photo</button></a></div> -->
         <div><button id="upload_widget">+photo</button></div>
+        <div><a href="#open-modal"><button id="newReview" style="visibility:hidden;">+review</button></a></div>
     </div>
 
     {{#each profileData}}
@@ -84,6 +84,9 @@ var myWidget = cloudinary.createUploadWidget({
   uploadPreset: 'wwv8a4or'}, (error, result) => { 
     if (!error && result && result.event === "success") { 
       console.log('Done! Here is the image info: ', result.info); 
+      imageURL = result.info.secure_url;
+      console.log(imageURL);
+      addPhoto(imageURL);
     }
   }
 )
@@ -91,23 +94,38 @@ var myWidget = cloudinary.createUploadWidget({
 document.getElementById("upload_widget").addEventListener("click", function(){
     myWidget.open();
   }, false);
+
+function addPhoto(req) {
+  console.log(req);
+  Photo.create({
+    url: req,
+  })
+  .then((newPhoto) => {
+    res.json(newPhoto);
+  });
+  document.getElementById('newReview').style.visibility='visible';
+}
+
 </script>
 
 
 
 <!-- pure.css modal to add a photo -->
 
-{{!-- <div id="open-modal" class="modal-window">
+<div id="open-modal" class="modal-window">
   <div>
     <div style="float:right;"><a href="#modal-close"><button>close</button></a></div>
     <!-- <a href="#modal-close" title="Close" class="modal-close">close &times;</a> -->
-    <h2><span style="color:darkorange;">+</span>Photo</h2>
+    <h2><span style="color:darkorange;">+</span>Review</h2>
     <div>
-      <p>Upload your photo here:</p>
-      <p>[insert Cloudinary code]</p>
+      <p>Add your description/review here.</p>
+      <form>
+        <textarea id="foodReview" name="foodReview" rows="4"></textarea>
+        <input type="submit" value-"submit">
+      </form>
     </div>
   </div>
-</div> --}}
+</div>
 
 {{!-- original Cloudinary button
 
