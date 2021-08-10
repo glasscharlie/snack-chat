@@ -67,23 +67,30 @@ router.get("/search", (req,res)=>{
 
 
 router.get(`/friends`, (req,res)=>{
-  // console.log(req.session.user.id)
-    User.findByPk(1,{
+  if(req.session.user?.id){
+    User.findByPk(req.session.user.id,{
       include:[{
         model: User,
         as:"Followed", include:[Photos]} ]
     }).then(posts=>{ 
-      console.log(posts.Followed[0].name);
-      Following = []
+      following = []
       for (let i = 0; i < posts.Followed.length; i++) {
-        console.log(posts.Followed[i].Photos[posts.Followed[i].Photos.length -1].review)
-        data = {"username":posts.Followed[i].username, "img":posts.Followed[i].Photos[posts.Followed[i].Photos.length -1].url, "description": posts.Followed[i].Photos[posts.Followed[i].Photos.length -1].review}
-
+        if (posts.Followed[i].Photos.length > 0) {
+        data = {"id":posts.Followed[i].id, "username":posts.Followed[i].username, "img":posts.Followed[i].Photos[posts.Followed[i].Photos.length -1].url, "description": posts.Followed[i].Photos[posts.Followed[i].Photos.length -1].review}
       }
-      res.render("friends");
+      else{
+        data = {"username":posts.Followed[i].username}
+      }
+        following.push(data)
+      }
+      res.render("friends", {following:following});
 })
-
+  }
+  else {
+    res.render("login",{logged_in:req.session.user});
+}
 });
+
 router.get("/profile",(req,res)=>{
   if(req.session.user?.id){
     (console.log("its working!"))
