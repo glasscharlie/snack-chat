@@ -96,20 +96,22 @@ document.getElementById("upload_widget").addEventListener("click", function(){
   }, false);
 
 function addPhoto(req) {
-  console.log(req);
-  Photo.create({
-    url: req,
-  })
-  .then((newPhoto) => {
-    res.json(newPhoto);
-  });
+
+  console.log('passed string into function: ' + req);
+
+  // Photo.create({
+  //   url: req,
+  // })
+  // .then((newPhoto) => {
+  //   res.json(newPhoto);
+  // });
+
   document.getElementById('newReview').style.visibility='visible';
 }
 
 </script>
 
 <!-- pure.css modal to add a review. -->
-
 <div id="open-modal" class="modal-window">
   <div>
     <div style="float:right;"><a href="#modal-close"><button>close</button></a></div>
@@ -117,13 +119,17 @@ function addPhoto(req) {
     <h2><span style="color:darkorange;">+</span>Review</h2>
     <div>
       <p>Add your description/review here.</p>
-      <form id-"submitReview">
-        <textarea id="foodReview" name="foodReview" rows="4"></textarea>
-        <input type="submit" value-"submit">
+      <form id="submitReview">
+        <input id="restaurant" name="restaurant" placeholder="Where did you eat?">
+        <textarea id="review" name="review" rows="4" cols="40" placeholder="How was the food?"></textarea>
+        <br>
+        <button type="submit" value="submit" style="float:right;">submit</button>
       </form>
+      <br>
     </div>
   </div>
 </div>
+
 
 {{!-- original Cloudinary button
 

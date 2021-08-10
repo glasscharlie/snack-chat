@@ -1,7 +1,9 @@
+const { response } = require('express');
 const express = require('express');
 const session = require('express-session');
 const router = express.Router();
 const { User, Photos,} = require('../models');
+const Photo = require('../models/Photo');
 
 router.get('/', (req,res) => {
   console.log(req.session.user)
@@ -11,58 +13,6 @@ router.get('/', (req,res) => {
 router.get("/login", (req,res)=>{
     res.render("login",{loggedInUser:req.session.user});
 });
-
-
-// router.get("/profile", (req,res)=>{
-//     res.render("profile",{loggedInUser:req.session.user});
-// });
-
-
-// router.get('/profile/:id', async (req, res) => {
-// try {
-//   console.log('\nUSER ID: ' + req.params.id);
-//   const dbProfileData = await User.findByPk(req.params.id, {
-//     include: [
-//       {
-//         // model: User,
-//         model: Photos,
-//       },
-//     ],
-//   });
-
-//   console.log('\ndbProfileData:');
-//   console.log(dbProfileData);
-
-//   const profile = dbProfileData.get({ plain: true });
-
-//   console.log('\nprofile:');
-//   console.log(profile);
-
-//   res.render('profile', { profile });
-
-// } catch (err) {
-//   console.log(err);
-//   res.status(500).json(err);
-// }
-
-// original code for "get profile/:id" follows:
-//     try {
-
-//       // const userId = req.params.id;  
-//       console.log(req.params.id);
-
-//       const dbUserData = await User.findByPk(req.params.id); 
- 
-//       const user = dbUserData.get({ plain: true });
-//       console.log(dbUserData);
-//       res.render('profile', { user });
-//     } catch (err) {
-//       console.log(err);
-//       res.status(500).json(err);
-//     }
-// });
-
-// });
 
 router.get(`/profile/:id`, (req,res)=>{
   if(req.session.user?.id){
@@ -115,7 +65,6 @@ router.get(`/profile/:id`, (req,res)=>{
 router.get("/search", (req,res)=>{
     res.render("search",{loggedInUser:req.session.user});
 });
-
 
 router.get(`/friends`, (req,res)=>{
   if(req.session.user?.id){
