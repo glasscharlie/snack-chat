@@ -4,41 +4,37 @@
 
   <div class="leftCard">
 
-    <h2>{{user.name}} Profile</h2>
+    <h2>Your Profile</h2>
 
     <ul>
-      <li>{{user.username}}</li>
-      <li>{{user.email}}</li>
-      {{!-- <li>xxx Photos Taken</li>
-      <li>yyy Restaurants Visited</li> --}}
+    {{#each profileData}}
+    {{#if email}}
+      <li>{{ user }}</li>
+      <li>{{ username }}</li>
+    {{/if}}
+    {{/each}}
+
     </ul>
 
     <h2>Following</h2>
 
     <ul>
-    {{#each friendsList as |friend|}}
-      <li>{{friend}}</li>
+    {{#each profileData}}
+    {{#if followed_username}}
+      <li>{{ followed_username }}</li>
+    {{/if}}
     {{/each}}
     </ul>
 
-    <ul>
-      <li>Friend 1</li>
-      <li>Friend 2</li>
-      <li>Friend 3</li>
-    </ul>
 
     <h2>Followers</h2>
 
     <ul>
-    {{#each friendsList as |friend|}}
-      <li>{{friend}}</li>
+    {{#each profileData}}
+    {{#if followers_username}}
+      <li>{{ followers_username }}</li>
+    {{/if}}
     {{/each}}
-    </ul>
-
-    <ul>
-      <li>Friend 1</li>
-      <li>Friend 2</li>
-      <li>Friend 3</li>
     </ul>
 
   </div>
@@ -51,62 +47,28 @@
 
     <div class="subHeader pure-u-1">
         <div><h2>Photo Gallery</h2></div>
-        <!-- <div><a href="#open-modal"><button id="newPhoto">+photo</button></a></div> -->
-        <div><button id="upload_widget">+photo</button></div>
+        <div><button id="upload_widget">+photo</button>
+        <a href="#open-modal"><button id="newReview" style="visibility:hidden;">+review</button></a></div>
     </div>
 
-    {{#each photos as |photo|}} -->
-    <div class="foodCard pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-3">
-      <a href="{{photo.review}}">
-        <img src="{{photo.url}}" alt="{{photo.id}}">{{photo.id}}
-      </a>
-    </div>
+    {{#each profileData}}
+    {{#if img}}
+        <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
+        <a href="#">
+          <img src={{img}} alt="test"><br />
+          <span id="">{{description}}</span>
+        </a>
+      </div>
+
+      {{/if}}
     {{/each}}
-
 
   <!-- test photo gallery -->
 
     {{!-- <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-      <a href="#">
         <img src="./assets/images/splash02.jpg" alt="test"><br />
         <span id="">test</span>
-      </a>
-    </div>
-
-    <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-      <a href="#">
-        <img src="./assets/images/splash01.jpg" alt="test"><br />
-        <span id="">test</span>
-      </a>
-    </div>
-
-    <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-      <a href="#">
-        <img src="./assets/images/splash03.jpg" alt="test"><br />
-        <span id="">test</span>
-      </a>
-    </div>
-
-    <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-      <a href="#">
-        <img src="./assets/images/splash04.jpg" alt="test"><br />
-        <span id="">test</span>
-      </a>
-    </div>
-
-    <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-      <a href="#">
-        <img src="./assets/images/splash05.jpg" alt="test"><br />
-        <span id="">test</span>
-      </a>
-    </div>
-
-    <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-      <a href="#">
-        <img src="./assets/images/splash06.jpg" alt="test"><br />
-        <span id="">test</span>
-      </a>
-    </div>  --}}
+    </div> --}}
 
   </div>
 
@@ -118,10 +80,14 @@
 
 <script type="text/javascript">  
 var myWidget = cloudinary.createUploadWidget({
-  cloudName: 'my_cloud_name', 
-  uploadPreset: 'my_preset'}, (error, result) => { 
+  cloudName: 'dsd1od6hy', 
+  uploadPreset: 'wwv8a4or'}, (error, result) => { 
     if (!error && result && result.event === "success") { 
       console.log('Done! Here is the image info: ', result.info); 
+      imageURL = result.info.secure_url;
+      console.log(imageURL);
+      addPhoto(imageURL);
+      document.getElementById('url').setAttribute('value',imageURL)
     }
   }
 )
@@ -129,23 +95,50 @@ var myWidget = cloudinary.createUploadWidget({
 document.getElementById("upload_widget").addEventListener("click", function(){
     myWidget.open();
   }, false);
+
+function addPhoto(req) {
+
+  console.log('passed string into function: ' + req);
+
+  // Photo.create({
+  //   url: req,
+  // })
+  // .then((newPhoto) => {
+  //   res.json(newPhoto);
+  // });
+
+  document.getElementById('newReview').style.visibility='visible';
+}
+
 </script>
 
-{{!-- 
-
-<!-- pure.css modal to add a photo -->
-
+<!-- pure.css modal to add a review. -->
 <div id="open-modal" class="modal-window">
   <div>
     <div style="float:right;"><a href="#modal-close"><button>close</button></a></div>
     <!-- <a href="#modal-close" title="Close" class="modal-close">close &times;</a> -->
-    <h2><span style="color:darkorange;">+</span>Photo</h2>
+    <h2><span style="color:darkorange;">+</span>Review</h2>
     <div>
-      <p>Upload your photo here:</p>
-      <p>[insert Cloudinary code]</p>
+      <p>Add your description/review here.</p>
+      <form id="submitReview">
+            {{#each profileData}}
+            {{#if email}}
+        <input id="user_id" name="_method" type="hidden" value="{{user_id}}">
+        {{/if}}
+        {{/each}}
+        <input id="url" name="_method" type="hidden" value="">
+        <input id="restaurant" name="restaurant" placeholder="Where did you eat?">
+        <input id="food" name="food" placeholder="what food did you eat?">
+        <textarea id="review" name="review" rows="4" cols="40" placeholder="How was the food?"></textarea>
+        <br>
+        <button type="submit" value="submit" style="float:right;">submit</button>
+      </form>
+      <br>
     </div>
   </div>
-</div> --}}
+</div>
+
+<script src="/assets/js/profile.js"></script>
 
 {{!-- original Cloudinary button
 

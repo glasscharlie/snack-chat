@@ -1,10 +1,13 @@
 const loginForm = document.querySelector("#loginInformation");
 loginForm.addEventListener("submit",(e)=>{
     e.preventDefault();
+    console.log(document.querySelector("#userNameLogin").value,);
+    console.log(document.querySelector("#passwordLogin").value,);
     const loginObj={
         username:document.querySelector("#userNameLogin").value,
         password:document.querySelector("#passwordLogin").value,
     }
+    console.log(loginObj)
     fetch("/api/users/login",{
         method: "POST",
         body: JSON.stringify(loginObj),
@@ -14,8 +17,12 @@ loginForm.addEventListener("submit",(e)=>{
     }).then(res=>{
         if(res.ok){
             console.log("successful login")
+            res.json().then(data=>{
+
+                location.assign(`/profile/${data.id}`);
+            })
         } else {
-            alert("there was an error")
+            alert("Please check all fields as there is an error.")
         }
     })
 
@@ -39,8 +46,11 @@ signUpForm.addEventListener("submit",(e)=>{
     }).then(res=>{
         if(res.ok){
             console.log("successful sign up!")
+            res.json().then(data=>{
+                location.assign(`/profile/${data.id}`)
+            })
         } else {
-            alert("there was an error")
+            alert("Please check all fields as there is an error.")
         }
     })
 

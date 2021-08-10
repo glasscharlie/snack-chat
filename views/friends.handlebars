@@ -6,18 +6,18 @@
 
       <h2>Following</h2>
 
-      <ul>
-      {{#each friendsList as |friend|}}
-        <li>{{friend}}</li>
+      <ul style="width:100%;">
+      {{#each following}}
+        <form class="unfollowForm"action="/api/users/unfollow/{{id}}" method="post" >
+          <li style="width:100%; height:40px;">
+            <div>
+            {{username}}
+            <input class="unfollowInput" name="_method" type="hidden" value="delete">
+            <button class="unfollowButton" type="submit" id="{{id}}" value="{{id}}">unfollow</button>
+            </div>
+          </li>
+        </form>
       {{/each}}
-      </ul>
-
-      <ul>
-        <li>Friend 1</li>
-        <li>Friend 2</li>
-        <li>Friend 3</li>
-        <li>Friend 4</li>
-        <li>Friend 5</li>
       </ul>
 
     </div>
@@ -30,60 +30,23 @@
 
       <div class="subHeader pure-u-1">
           <div><h2>The Feed</h2></div>
-          <div><button id="newPhoto">+friend</button></div>
+          <div><button><a id="upload_widget" href="#open-modal" class="followButton">+follow</a></button></div>
       </div>
 
-      <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-        <a href="#">
-          <img src="./assets/images/splash06.jpg" alt="test"><br />
-          <span id="">test</span>
-        </a>
-      </div>
-
-      <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-        <a href="#">
-          <img src="./assets/images/splash04.jpg" alt="test"><br />
-          <span id="">test</span>
-        </a>
-      </div>
-
-      <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-        <a href="#">
-          <img src="./assets/images/splash06.jpg" alt="test"><br />
-          <span id="">test</span>
-        </a>
-      </div>
-
-      <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-        <a href="#">
-          <img src="./assets/images/splash05.jpg" alt="test"><br />
-          <span id="">test</span>
-        </a>
-      </div>
-
-      <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-        <a href="#">
-          <img src="./assets/images/splash02.jpg" alt="test"><br />
-          <span id="">test</span>
-        </a>
-      </div>
-
-      <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
-        <a href="#">
-          <img src="./assets/images/splash01.jpg" alt="test"><br />
-          <span id="">test</span>
-        </a>
-      </div>
-
+      
       <!-- image gallery of user's photos -->
-
-      {{#each photos as |photo|}} -->
-      <div class="foodCard pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-3">
-        <a href="{{photo.review}}">
-          <img src="{{photo.url}}" alt="{{photo.id}}">{{photo.id}}
+    {{#each following}}
+    {{#if img}}
+      <div class="foodCard pure-u-1 pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4">
+        <a href="/profile/{{id}}">
+          <h4>{{username}}</h4>
+          <img src={{img}} alt="test"><br />
+          <span id="">{{description}}</span>
         </a>
       </div>
+      {{/if}}
       {{/each}}
+
 
     </div>
 
@@ -91,88 +54,28 @@
 
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{!-- <div class="menu-container">
-  <div class="card-header col-md-12 text-center">
-    <h2>
-      &#127869 Current Menu
-    </h2>
-  </div>
-  {{#each dishes as |dish|}}
-  <div class="dish col-md-4">
-    <p>
-      {{dish.id}}.
-      {{dish.dish_name}}
-    </p>
-  </div>
-  <div class="col-md-5">
-    <p>
-      Guest:
-      {{dish.guest_name}}
-    </p>
-  </div>
-  <div class="col-md-3">
-    🥜: {{#if dish.has_nuts}} Contains nuts {{else}} No nuts {{/if}}
-  </div>
-  {{/each}}
-  <!-- This is the form for adding a new dish -->
-  <div class="add-dish-container">
-    <h2>
-      RSVP with the dish you plan to bring!
-    </h2>
-    <form class="new-dish-form">
-      <label for="dish_name">
-        Dish Name:
-      </label>
-      <br />
-      <textarea id="dish_name" name="dish_name" rows="2" cols="30">
-      {{dish_name}}
-    </textarea>
-      <br />
-      <label for="description">
-        Description:
-      </label>
-      <br />
-      <textarea id="description" name="description" rows="5" cols="30">
-      {{description}}
-    </textarea>
-      <br />
-      <label for="guest_name">
-        Guest Name:
-      </label>
-      <br />
-      <textarea id="guest_name" name="guest_name" rows="2" cols="30">
-      {{guest_name}}
-    </textarea>
-      <br />
-      <br />
-      {{#if has_nuts}}
-      <input type="checkbox" id="has_nuts" name="has_nuts" checked />
-      {{else}}
-      <input type="checkbox" id="has_nuts" name="has_nuts" />
-      {{/if}}
-      <label for="has_nuts">
-        Check box if this dish contains nuts
-      </label>
-      <br />
-      <button type="submit" value="Submit">
-        Submit
-      </button>
-    </form>
+<div id="open-modal" class="modal-window">
+  <div>
+    <a href="#modal-close" title="Close" class="modal-close">close &times;</a>
+    <form id="searchForm">
+        <h1>Add Friend</h1>
+        <input type="text" id="friendSearchInput">
+        <button id="friendSearchButton" value=>follow!</button>
+      </form>
   </div>
 </div>
 
-<script src="/js/add-dish.js"></script> --}}
+<script src="/assets/js/friends.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
