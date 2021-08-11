@@ -7,13 +7,13 @@ This application is a group project mock-up of a social media application in whi
 ## Table of Contents
 
   1. [Description](#description)
-  3. [Installation](#installation)
-  4. [Usage](#usage)
-  5. [Contribution](#contribution)
-  6. [Testing](#testing)
-  7. [Questions](#questions)
-  8. [Screenshots](#screenshots)
-  9. [License](#license)
+  2. [Installation](#installation)
+  3. [Usage](#usage)
+  4. [Contribution](#contribution)
+  5. [Testing](#testing)
+  6. [Questions](#questions)
+  7. [Screenshots](#screenshots)
+  8. [License](#license)
   
 ## Description
 
@@ -53,7 +53,10 @@ Please don't hesitate to reach out to us via GitHub or email if you've got any q
 
 ## Screenshots
 
-*Screenshots go here.*
+![Screenshot 01](public/assets/images/screenshot01.jpg "landing page")
+![Screenshot 02](public/assets/images/screenshot02.jpg "login screen")
+![Screenshot 03](public/assets/images/screenshot03.jpg "photo upload")
+![Screenshot 04](public/assets/images/screenshot04.jpg "photo gallery")
 
 ## License
 
